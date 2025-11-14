@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APAC Relocation</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <style>
+      /* --- General & Brand Colors --- */
+      body {
+        background-color: white;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        overflow-x: hidden; /* Horizontal scroll rokne ke liye */
+      }
+
+      :root {
+        --brand-teal: #00a79d;
+        --highlight-blue: #00b9ecf8;
+        --input-bg: #f6f6f6;
+        --icon-bg: #343a40;
+      }
+
+      /* ---
+      TABLET & DESKTOP NAVBAR
+      --- */
+      .navbar-desktop {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 86%;
+        z-index: 100;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      .navbar-desktop .navbar-brand img {
+        height: 40px;
+      }
+
+      .navbar-desktop .navbar-nav .nav-link {
+        font-weight: 500;
+        color: #555;
+        margin: 0 0.5rem;
+      }
+
+      .navbar-desktop .navbar-nav .nav-link.active,
+      .navbar-desktop .navbar-nav .nav-link:hover {
+        color: #0d6efd;
+      }
+
+      .navbar-desktop .btn-brand {
+        background-color: var(--brand-teal);
+        border-color: var(--brand-teal);
+        color: #fff;
+        font-weight: 500;
+        padding: 0.5rem 1.25rem;
+        border-radius: 8px;
+      }
+
+      /* ---
+      MOBILE NAVBAR
+      --- */
+      .navbar-mobile {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        background-color: transparent;
+        padding: 1rem;
+      }
+      .navbar-mobile .navbar-brand img {
+        height: 35px;
+      }
+      .navbar-mobile .navbar-toggler {
+        border: none;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+        padding: 0.5rem 0.6rem;
+      }
+      .navbar-mobile .navbar-toggler-icon {
+        width: 1.2em;
+        height: 1.2em;
+      }
+      .navbar-mobile .navbar-collapse {
+        background-color: white;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 0.5rem;
+      }
+      .navbar-mobile .navbar-nav .nav-link {
+        color: #333;
+      }
+
+      /* ---
+      TABLET & DESKTOP HERO SECTION
+      --- */
+      .hero-section-desktop {
+        position: relative;
+        background-color: #f5f5f5;
+        padding: 120px 0px 140px 0px;
+      }
+
+      .hero-section-desktop .hero-content {
+        padding-top: 4rem;
+        padding-bottom: 8rem;
+        position: relative;
+        width: 650px;
+        z-index: 5;
+      }
+
+      .hero-section-desktop .hero-image-col {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: calc(100% * 7 / 12);
+        background-image: url("/hero.png");
+        background-size: cover;
+        background-position: center;
+        min-height: 500px;
+        max-width: 600px;
+        z-index: 1;
+      }
+
+      .hero-section-desktop .pill-tag {
+        display: inline-block;
+        padding: 0.35rem 0.85rem;
+        background-color: #f0f3f5;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #555;
+        border: 1px solid #93ede7;
+      }
+
+      .hero-section-desktop .hero-heading {
+        font-size: 2.75rem;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+      .hero-section-desktop .hero-heading .highlight1 {
+        background-color: var(--highlight-blue);
+        color: white;
+        border-top-left-radius: 32px;
+        border-top-right-radius: 32px;
+        border-bottom-right-radius: 32px;
+        border-bottom-left-radius: 0;
+        padding: 0em 0.2em;
+      }
+      .hero-section-desktop .hero-heading .highlight2 {
+        background-color: var(--highlight-blue);
+        color: white;
+        border-top-left-radius: 32px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 32px;
+        border-bottom-left-radius: 32px;
+        padding: 0em 0.2em;
+      }
+
+      /* ---
+      MOBILE HERO SECTION
+      --- */
+      .hero-section-mobile {
+        position: relative;
+        padding: 6rem 1rem 5rem 1rem;
+        background-image: url("/hero.png");
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        text-align: center;
+      }
+      .hero-section-mobile::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+      }
+      .hero-section-mobile .hero-content-mobile {
+        position: relative;
+        padding-top: 140px;
+        z-index: 2;
+      }
+      .hero-section-mobile .pill-tag-mobile {
+        display: inline-block;
+        padding: 0.35rem 1rem;
+        border: 1.5px solid #fff;
+        border-radius: 50px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 1rem;
+      }
+      .hero-section-mobile .hero-heading-mobile {
+        font-size: 1.6rem;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+      }
+      .hero-section-mobile .hero-subheading-mobile {
+        font-size: 1rem;
+        font-weight: 400;
+        opacity: 0.9;
+        max-width: 340px;
+        margin: 0 auto;
+      }
+
+      /* ---
+      FORM SECTION (COMMON STYLES)
+      --- */
+      .form-section {
+        position: relative;
+        z-index: 10;
+        margin-top: -15rem; /* DEFAULT (Desktop) overlap */
+      }
+      .form-card {
+        background: #fff;
+        border-radius: 6px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        padding: 2.5rem;
+      }
+      .form-label.fw-bold {
+        font-weight: 600 !important;
+      }
+
+      /* --- DESKTOP Form Heading --- */
+      .form-heading-desktop {
+        font-weight: 500;
+        text-align: left;
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+      }
+
+      /* --- MOBILE Form Heading --- */
+      .form-heading-mobile {
+        font-weight: 600;
+        text-align: left;
+        margin-bottom: 2rem;
+        font-size: 1.4rem;
+      }
+
+      /* ---
+      TABLET & DESKTOP Form Inputs
+      --- */
+      .input-with-icon {
+        position: relative;
+      }
+      /* Desktop circular icons */
+      .input-with-icon .input-icon {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        background-color: var(--icon-bg);
+        color: #fff;
+        height: 28px;
+        width: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        z-index: 3;
+      }
+      .form-control,
+      .form-select {
+        background-color: var(--input-bg);
+        border: none;
+        border-radius: 8px;
+        padding-top: 0.85rem;
+        padding-bottom: 0.85rem;
+        padding-left: 3.5rem; /* Desktop icon ke liye space */
+        font-weight: 500;
+      }
+      .form-control::placeholder {
+        color: #888;
+      }
+      .form-select {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 16px 12px;
+        appearance: none;
+      }
+      /* Desktop Dotted Line */
+      .dotted-line-target::before {
+        content: "";
+        position: absolute;
+        left: calc(1rem + 14px); /* 1rem padding + 14px icon radius */
+        top: -1rem;
+        height: 1rem;
+        border-left: 2px dotted #ccc;
+      }
+
+      /* --- DESKTOP Button --- */
+      .btn-brand-full {
+        background-color: var(--brand-teal);
+        border-color: var(--brand-teal);
+        color: #fff;
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 0.85rem 3rem;
+        border-radius: 50px;
+      }
+      .btn-brand-full:hover {
+        background-color: #008f86;
+        border-color: #008f86;
+        color: #fff;
+      }
+
+      /* --- MOBILE Button --- */
+      .btn-brand-mobile {
+        background-color: var(--brand-teal);
+        border-color: var(--brand-teal);
+        color: #fff;
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 0.65rem;
+        border-radius: 50px;
+        width: 70%;
+        align-items: center;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+      }
+
+      /* ---
+      ====================================
+      MOBILE RESPONSIVE OVERRIDES (CHANGED TO MD)
+      ====================================
+      --- */
+      /* Yeh styles ab 767.98px tak apply hongay (yaani sirf mobile) */
+      @media (max-width: 767.98px) {
+        
+        /* Form Overlap ko adjust karein */
+        .form-section {
+          margin-top: -3rem; /* Mobile par overlap */
+          padding: 0 0.5rem; /* Side padding */
+        }
+
+        .form-card {
+          padding: 1.5rem; /* Mobile par card ki padding kam */
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+        }
+
+        /* --- MOBILE Form Icon Overrides --- */
+        .input-with-icon .input-icon {
+          /* Circular background hatayein */
+          background-color: transparent;
+          color: #6c757d; /* Icon ko dark karein */
+          height: auto;
+          width: auto;
+          /* Position adjust karein */
+          left: 1.25rem;
+          font-size: 1rem; /* Icon thora bara */
+        }
+
+        .form-control,
+        .form-select {
+          padding-left: 3.25rem; /* Mobile icon ke liye padding adjust karein */
+        }
+
+        /* Mobile Dotted Line Adjust */
+        .dotted-line-target::before {
+          left: calc(1.25rem + 7px); /* Mobile icon ke center mein */
+          top: -1.25rem;
+          height: 1.25rem;
+        }
+      }
+
+
+
+
+      /* section 2 */
+
+
+
+
+      .ai-assistant-section {
+            margin-top: 100px;
+            background: var(--brand-teal);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background Pattern (concentric circles) */
+        .ai-assistant-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M50 0c27.614 0 50 22.386 50 50s-22.386 50-50 50S0 77.614 0 50 22.386 0 50 0zm0 10c22.091 0 40 17.909 40 40s-17.909 40-40 40S10 72.091 10 50 27.909 10 50 10zm0 10c16.569 0 30 13.431 30 30s-13.431 30-30 30S20 66.569 20 50 33.431 20 50 20zm0 10c11.046 0 20 8.954 20 20s-8.954 20-20 20S30 61.046 30 50 38.954 30 50 30zm0 10c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10z"/%3E%3C/g%3E%3C/svg%3E');
+            background-size: 80px 80px; /* Adjust size of the pattern */
+            opacity: 0.2; /* Lighter opacity */
+            z-index: 1;
+        }
+
+        .ai-assistant-section .container {
+            position: relative;
+            z-index: 2; /* Content upar dikhne ke liye */
+        }
+
+        .ai-assistant-section .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            /* background-color: rgba(255, 255, 255, 0.2); */
+            border: 1px solid rgb(231, 231, 231);
+            border-radius: 20px;
+            padding: 5px 15px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .ai-assistant-section .status-indicator .dot {
+            width: 8px;
+            height: 8px;
+            background-color: white; /* Green dot */
+            border-radius: 50%;
+        }
+
+        .ai-assistant-section h1 {
+            font-size: 2.8rem;
+            font-weight: semibold;
+            margin-bottom: 20px;
+        }
+
+        .ai-assistant-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ai-assistant-section .search-input-container {
+            /* max-width: 800px; */
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .ai-assistant-section .search-input {
+            width: 100%;
+            padding: 18px 25px 18px 55px; /* Left padding for icon */
+            border: none;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            color: #333;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .ai-assistant-section .search-input::placeholder {
+            color: #888;
+        }
+
+        .ai-assistant-section .search-input-icon {
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 1.1rem;
+            pointer-events: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .ai-assistant-section {
+                padding: 60px 15px;
+            }
+            .ai-assistant-section h1 {
+                font-size: 2.2rem;
+            }
+            .ai-assistant-section p {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+            .ai-assistant-section .search-input {
+                padding: 15px 20px 15px 50px;
+            }
+            .ai-assistant-section .search-input-icon {
+                left: 20px;
+                font-size: 1rem;
+            }
+            .ai-assistant-section::before {
+                background-size: 60px 60px; /* Adjust pattern size for smaller screens */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .ai-assistant-section h1 {
+                font-size: 1.8rem;
+            }
+            .ai-assistant-section p {
+                font-size: 0.9rem;
+            }
+        }
+
+
+
+        /* section 3 */
+
+        .choose-us-section {
+            padding: 80px 0;
+            background-color: white; /* Section ka background white rakha hai */
+        }
+
+        .choose-us-section .container {
+            max-width: 1100px; /* Thoda zyada width */
+        }
+
+        .choose-us-heading-area {
+            text-align: left;
+            padding-top: 30px; /* Cards ke saath align karne ke liye */
+        }
+
+        .choose-us-heading-area .pill-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #e6f6f5; /* Light teal background */
+            border-radius: 20px;
+            padding: 5px 15px;
+            margin-bottom: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #00a79d; /* Brand Teal color */
+            border: 1px solid rgba(0, 167, 157, 0.2); /* Thoda border */
+        }
+
+        .choose-us-heading-area .pill-tag .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00a79d; /* Teal dot */
+            border-radius: 50%;
+        }
+
+        .choose-us-heading-area h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .choose-us-heading-area p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #666;
+            max-width: 400px; /* Text ko control karne ke liye */
+        }
+
+        .feature-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Soft shadow */
+            height: 100%; /* Ensure all cards have same height */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Content left align */
+            text-align: left; /* Text bhi left align */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f0f0f0; /* Light border */
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px); /* Hover effect */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card .icon-wrapper {
+            background-color: #e6f6f5; /* Icon background */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 167, 157, 0.2);
+        }
+
+        .feature-card .icon-wrapper i {
+            color: #00a79d; /* Icon color */
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #777;
+            line-height: 1.5;
+            flex-grow: 1; /* Description ko flex-grow den taake height adjust ho */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991.98px) {
+            .choose-us-heading-area {
+                text-align: center;
+                padding-bottom: 40px;
+                padding-top: 0;
+            }
+            .choose-us-heading-area p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .feature-card {
+                margin-bottom: 20px; /* For tablet/mobile, space between cards */
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .choose-us-section {
+                padding: 60px 0;
+            }
+            .choose-us-heading-area h2 {
+                font-size: 2rem;
+            }
+            .choose-us-heading-area p {
+                font-size: 1rem;
+            }
+            .feature-card {
+                padding: 25px;
+            }
+            .feature-card h3 {
+                font-size: 1.2rem;
+            }
+            .feature-card p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md py-3 navbar-desktop d-none d-lg-block">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="/logo.png"
+            alt="APAC Relocation Logo"
+            style="height: 40px"
+          />
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNavDesktop">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">International Moving</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Global Relocation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Settling in India</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact Us</a>
+            </li>
+          </ul>
+          <a href="#" class="btn btn-brand d-none d-lg-block">Track Your Shipment</a>
+        </div>
+      </div>
+    </nav>
+
+     <nav class="navbar navbar-expand-md py-3 navbar-desktop d-none d-md-block d-lg-none">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="/logo.png"
+            alt="APAC Relocation Logo"
+            style="height: 40px"
+          />
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNavDesktop">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Moving Sevice</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-mobile d-md-none">
+      <a class="navbar-brand" href="#">
+        <img src="/logo.png" alt="APAC Relocation Logo" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavMobile"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavMobile">
+        <ul class="navbar-nav mt-3">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">International Moving</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Global Relocation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Settling in India</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="hero-section-desktop px-5 d-none d-lg-block">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5 hero-content">
+            <span class="pill-tag mb-3"
+              ><i class="fa-solid fa-circle fa-2xs" style="color: #00a79d"></i>
+              INDIA SKYLINE</span
+            >
+            <h2 class="hero-heading mb-3">
+              Your Hassle <span class="highlight1">Free Relocation</span> to
+              <span class="highlight2">India Starts</span> Here
+            </h2>
+            <p class="text-muted col-lg-10">
+              We guarantee hassle-free door-to-door relocation to India. Get
+              Real Time Moving Quote to India.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image-col"></div>
+    </section>
+
+    <section class="hero-section-desktop px-5 d-none d-md-block d-lg-none">
+      <div class="container">
+        <div class="row" style="width: 400px; padding: 50px 0px 30px 0px;">
+          <div class="col-lg-5 hero-content">
+            <span class="pill-tag mb-3"
+              ><i class="fa-solid fa-circle fa-2xs" style="color: #00a79d"></i>
+              INDIA SKYLINE</span
+            >
+            <h2 class="hero-heading mb-3" style="font-size: 1.7rem;">
+              Your Hassle <span class="highlight1">Free Relocation</span> to
+              <span class="highlight2">India Starts</span> Here
+            </h2>
+            <p class="text-muted col-lg-10" style="font-size: 16px;">
+              We guarantee hassle-free door-to-door relocation to India. Get
+              Real Time Moving Quote to India.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image-col" style="width: 300px;"></div>
+    </section>
+
+    <section class="hero-section-mobile d-md-none">
+      <div class="hero-content-mobile">
+        <span class="pill-tag-mobile"
+          ><i class="fa-solid fa-circle fa-2xs" style="margin-right: 5px"></i>
+          INDIA SKYLINE</span
+        >
+        <h2 class="hero-heading-mobile mb-3">
+          Your Hassle Free Relocation to India Starts Here
+        </h2>
+        <p class="hero-subheading-mobile">
+          Your trusted international mover to India. We handle every detail from
+          expert packing to on-time delivery at your new home.
+        </im_p>
+      </div>
+    </section>
+
+    <section class="form-section px-md-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+            <div class="form-card">
+              <h4 class="form-heading-desktop d-none d-md-block">
+                Get your international moving quote, Smaller shipment
+                <strong>can</strong> book instantly
+              </h4>
+              <h4 class="form-heading-mobile d-md-none">
+                Get a personalized quote below.
+              </h4>
+
+              <form>
+                <div class="row g-3 g-lg-4">
+                  
+                  <div class="col-12">
+                    <label for="movingFrom" class="form-label fw-bold"
+                      >I am moving from</label
+                    >
+                    <div class="input-with-icon">
+                      <i class="fa-solid fa-map-marker-alt input-icon"></i>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="movingFrom"
+                        placeholder="Enter your address"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-12 position-relative dotted-line-target">
+                    <label for="movingTo" class="form-label fw-bold"
+                      >I am moving to</label
+                    >
+                    <div class="input-with-icon">
+                      <i class="fa-solid fa-map-marker-alt input-icon"></i>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="movingTo"
+                        placeholder="Enter the address or city."
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-6 col-md-4">
+                    <label for="name" class="form-label fw-bold">Name</label>
+                    <div class="input-with-icon">
+                      <i class="fa-solid fa-user input-icon"></i>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        placeholder="Enter your name"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-6 col-md-4">
+                    <label for="email" class="form-label fw-bold">Email</label>
+                    <div class="input-with-icon">
+                      <i class="fa-solid fa-envelope input-icon"></i>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        placeholder="Enter your email"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4">
+                    <label for="phone" class="form-label fw-bold"
+                      >Phone Number</label
+                    >
+                    <div class="input-with-icon">
+                      <i class="fa-solid fa-phone input-icon"></i>
+                      <input
+                        type="tel"
+                        class="form-control"
+                        id="phone"
+                        placeholder="Enter your phone number"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <label for="fullHousehold" class="form-label fw-bold"
+                      >Full Household</label
+                    >
+                    <div class="input-with-icon">
+                      <i class="fa-solid fa-building input-icon"></i>
+                      <select class="form-select" id="fullHousehold">
+                        <option selected>Select household</option>
+                        <option>1 Bedroom</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <label for="movingDate" class="form-label fw-bold"
+                      >Moving Date</label
+                    >
+                    <div class="input-with-icon">
+                      <i class="fa-solid fa-calendar-alt input-icon"></i>
+                      <select class="form-select" id="movingDate">
+                        <option selected>Select moving date</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-12 mt-4 text-center d-none d-md-block">
+                    <button type="submit" class="btn btn-brand-full">
+                      Get a Quote
+                    </button>
+                  </div>
+
+                  <div class="col-12 mt-3 d-grid d-md-none">
+                    <button type="submit" class="btn btn-brand-mobile">
+                      Continue
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- section 2  -->
+
+    <section class="ai-assistant-section d-none d-lg-block">
+        <div class="container">
+            <div class="status-indicator">
+                <span class="dot"></span>
+                <span>AI ASSISTANT</span>
+            </div>
+            <h1>Ask Our Relocation AI</h1>
+            <p>Get instant answers about India moving procedures, customs clearance process and duties, quote amount, transit time and restricted goods.</p>
+            <div class="search-input-container">
+                <i class="fas fa-search search-input-icon"></i>
+                <input type="text" class="form-control search-input" placeholder="Type your question here...">
+            </div>
+        </div>
+    </section>
+
+
+    <section class="ai-assistant-section mt-4 mt-md-5 d-lg-none">
+        <div class="container">
+            <div class="status-indicator">
+                <span class="dot"></span>
+                <span>AI ASSISTANT</span>
+            </div>
+            <h1>Ask Our Relocation AI</h1>
+            <p>Get instant answers about India moving procedures, customs clearance process and duties, quote amount, transit time and restricted goods.</p>
+            <div class="search-input-container">
+                <i class="fas fa-search search-input-icon"></i>
+                <input type="text" class="form-control search-input" placeholder="Type your question here...">
+            </div>
+        </div>
+    </section>
+
+    <!-- section 3  -->
+
+    <section class="choose-us-section">
+        <div class="container">
+            <div class="row align-items-center">
+                
+                <div class="col-lg-7">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="feature-card">
+                                <div class="icon-wrapper">
+                                    <i class="fas fa-box-open"></i>
+                                </div>
+                                <h3>End-to-End Service</h3>
+                                <p>Professional Packing, Customs Clearance and Delivery & Unpacking.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="feature-card">
+                                <div class="icon-wrapper">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3>Trusted Expertise</h3>
+                                <p>10+ years of experience, IAM Trusted Member,SLA Member. Spirit on Enterprise Singapore Award.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="feature-card">
+                                <div class="icon-wrapper">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <h3>Safe & Insured</h3>
+                                <p>Insurance Coverage, High Quality Packing, Less Damage and Delivery on Time</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="feature-card">
+                                <div class="icon-wrapper">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <h3>Global Reach</h3>
+                                <p>Own Offices in Singapore, Malaysia and India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 choose-us-heading-area">
+                    <div class="pill-tag">
+                        <span class="dot"></span>
+                        <span>APAC RELOCATION</span>
+                    </div>
+                    <h2>Why Choose Us</h2>
+                    <p>Your trusted partner for seamless international moves.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <div style="height: 100px"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
