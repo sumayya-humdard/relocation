@@ -318,7 +318,7 @@
         color: #fff;
         font-weight: 600;
         font-size: 1.1rem;
-        padding: 0.85rem 3rem;
+        padding: 0.55rem 4.4rem;
         border-radius: 50px;
       }
       .btn-brand-full:hover {
@@ -652,15 +652,21 @@
             padding-left: 2rem; /* Space for dots and line */
         }
 
-        .process-timeline::before {
-            content: '';
-            position: absolute;
-            left: 1rem; /* Position the vertical line */
-            top: 0;
-            bottom: 0;
-            width: 2px; /* Thickness of the line */
-            background-color: #e0e0e0; /* Light gray line color */
-        }
+        
+
+.process-timeline::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-image: linear-gradient(#77b3e3 33%, rgba(255, 255, 255, 0) 0%);
+    background-position: right;
+    background-size: 2px 8px; /* dot height spacing */
+    background-repeat: repeat-y;
+}
+
 
         .process-item {
             position: relative;
@@ -890,7 +896,7 @@
         /* Active step styling */
         .timeline-step.active {
             background-color: #11B8ED; /* Bright blue background */
-            color: #ffffff; /* White text */
+            color: #4f4e4e; /* White text */
             box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* More prominent shadow */
             border-color: #11B8ED;
         }
@@ -900,7 +906,10 @@
             font-weight: 700;
             margin-right: 1rem;
             min-width: 25px; /* Ensures numbers align */
+            padding: 3px 10px;
             text-align: center;
+            background-color: rgb(236, 236, 236);
+            border-radius: 4px;
         }
 
         .timeline-step .step-title {
@@ -1001,8 +1010,6 @@
         /* Cards */
         .location-card {
             background-color: #ffffff;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             border: 1px solid #e5e7eb;
             overflow: hidden;
             display: flex;
@@ -1013,7 +1020,8 @@
 
         .location-card-image {
             width: 100%;
-            height: 220px;
+            height: 300px;
+            padding: 20px;
             object-fit: cover;
         }
 
@@ -1098,7 +1106,7 @@
       /* Left Image (big) */
       .main-school-image {
         width: 100%;
-        height: 360px;
+        height: 400px;
         object-fit: cover;
         border-radius: 12px;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
@@ -1137,7 +1145,7 @@
       }
 
       .school-desc {
-        font-size: 0.88rem;
+        font-size: 1.2rem;
         color: #6c757d;
         margin: 0;
       }
@@ -1436,7 +1444,7 @@
         .frame-block {
             position: absolute;
             z-index: 1; /* Behind the image */
-            width: 70%;
+            width: 40%;
             height: 100px;
             background-color: #00B2F2;
             border-radius: 1.5rem;
@@ -1565,6 +1573,7 @@
             background-size: cover;
             background-position: center;
             min-height: 400px; /* Min height for desktop */
+            
         }
         
         /* On mobile, we hide the image column */
@@ -2040,7 +2049,7 @@
 
                 <div class="col-5">
                     <div class="text-content ps-lg-5">
-                        <span class="tag-pill">APAC RELOCATION</span>
+                        <span class="tag-pil">APAC RELOCATION</span>
                         <h2>Why Choose Us</h2>
                         <p class="lead-text">
                             Your trusted partner for seamless international moves.
@@ -2090,7 +2099,7 @@
                         </div>
 
                         <div class="col-md-6" >
-                            <div class="feature-card" style="height: 110%;">
+                            <div class="feature-card" style="height: 110%; ">
                                 <div class="icon-wrapper">
                                     <i class="bi bi-globe-americas"></i>
                                 </div>
@@ -2430,31 +2439,31 @@
 
                 <!-- Card 1 -->
                 <div class="col">
-                    <div class="location-card" style="width: 730px;">
-                        <img src="/secton4.1.png" class="location-card-image" alt="Mumbai">
+                    <div class="location-card">
+                        <img src="/secton4.1.png" class="location-card-image" alt="Chennai">
                         <div class="p-4 d-flex justify-content-between align-items-center">
                             <div>
                                 <h5 class="h5 fw-bold text-dark mb-1">Mumbai</h5>
-                                <p class="small text-muted mb-0">Experience Luxury & Lifestyle in Mumbai's Prime Locations</p>
+                                <p class="small text-muted mb-0">Experience Luxury & Lifestyle in Mumbai’s Prime Locations</p>
                             </div>
                             <a href="#" class="arrow-button ms-4">
-                                <i class="bi bi-arrow-right"></i>
+                                <i class="bi bi-arrow-up-right"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="col">
-                    <div class="location-card" style="width: 530px; margin-left: 100px;">
-                        <img src="/secton4.2.png" class="location-card-image" alt="Delhi NCR">
+                 <div class="col">
+                    <div class="location-card">
+                        <img src="/secton4.2.png" class="location-card-image" alt="Chennai">
                         <div class="p-4 d-flex justify-content-between align-items-center">
                             <div>
                                 <h5 class="h5 fw-bold text-dark mb-1">Delhi (NCR Region)</h5>
                                 <p class="small text-muted mb-0">Live Close to Culture and Connectivity in Delhi NCR</p>
                             </div>
                             <a href="#" class="arrow-button ms-4">
-                                <i class="bi bi-arrow-right"></i>
+                                <i class="bi bi-arrow-up-right"></i>
                             </a>
                         </div>
                     </div>
@@ -2470,7 +2479,7 @@
                                 <p class="small text-muted mb-0">Peaceful Living with Coastal Charm</p>
                             </div>
                             <a href="#" class="arrow-button ms-4">
-                                <i class="bi bi-arrow-right"></i>
+                                <i class="bi bi-arrow-up-right"></i>
                             </a>
                         </div>
                     </div>
@@ -2486,7 +2495,7 @@
                                 <p class="small text-muted mb-0">The Silicon Valley of India Green, Global, and Connected</p>
                             </div>
                             <a href="#" class="arrow-button ms-4">
-                                <i class="bi bi-arrow-right"></i>
+                                <i class="bi bi-arrow-up-right"></i>
                             </a>
                         </div>
                     </div>
@@ -2583,7 +2592,10 @@
       <div class="container">
         <!-- Section Header -->
         <div class="text-center mb-5">
-          <span class="tag-pi">FAMILY ACCOMMODATION</span>
+            <span class="tag-pill">
+                    <i class="bi bi-circle-fill"></i>
+                    Family Accommodation
+                </span>
           <h2 class="fw-bold text-dark mt-2">
             Finding the Perfect Family Home
           </h2>
@@ -2613,7 +2625,7 @@
                 <button class="explore-link">
                   Explore Now
                   <span class="arrow-circle"
-                    ><i class="bi bi-arrow-right"></i
+                    ><i class="bi bi-arrow-up-right"></i
                   ></span>
                 </button>
               </div>
@@ -2641,7 +2653,7 @@
                   <button class="explore-link">
                     Explore Now
                     <span class="arrow-circle"
-                      ><i class="bi bi-arrow-right"></i
+                      ><i class="bi bi-arrow-up-right"></i
                     ></span>
                   </button>
                 </div>
@@ -2664,7 +2676,7 @@
                   <button class="explore-link">
                     Explore Now
                     <span class="arrow-circle"
-                      ><i class="bi bi-arrow-right"></i
+                      ><i class="bi bi-arrow-up-right"></i
                     ></span>
                   </button>
                 </div>
@@ -2707,7 +2719,7 @@
                 <!-- Replaced 'w-full', 'rounded-xl', 'shadow-lg' with Bootstrap 'img-fluid', 'rounded-4', 'shadow-lg' -->
                 <img src="/short1.png"
                      alt="Spacious hotel lobby with large flower arrangements and marble floors"
-                     class="img-fluid rounded-4 shadow-lg">
+                     class="img-fluid rounded-4">
             </div>
         </div>
 
@@ -2719,7 +2731,7 @@
             <div class="col-md-6">
                  <img src="/short2.png"
                      alt="A couple sitting on a couch in a modern furnished apartment, looking at a laptop"
-                     class="img-fluid rounded-4 shadow-lg">
+                     class="img-fluid rounded-4">
             </div>
 
             <!-- Text Column (Right on desktop, Bottom on mobile) -->
@@ -2756,7 +2768,7 @@
                 <div class="card h-100 rounded-4">
                     <!-- Using a placeholder image -->
                     <img src="/india1.png" 
-                         class="card-img-top" alt="Taj Mahal">
+                         class="card-img-top p-3" alt="Taj Mahal">
                     <div class="card-body p-4">
                         <!-- Flex container to align text left and button right -->
                         <div class="d-flex justify-content-between align-items-center">
@@ -2765,7 +2777,7 @@
                                 <p class="card-text text-muted small">For breathtaking views.</p>
                             </div>
                             <a href="#" class="btn bg-teal text-white btn-circle">
-                                <i class="bi bi-arrow-right"></i>
+                                <i class="bi bi-arrow-up-right"></i>
                             </a>
                         </div>
                     </div>
@@ -2775,8 +2787,8 @@
             <!-- Card 2: Jio World Plaza -->
             <div class="col">
                 <div class="card h-100 rounded-4">
-                    <img src="/india1.png" 
-                         class="card-img-top" alt="Jio World Plaza">
+                    <img src="/india2.png" 
+                         class="card-img-top p-3" alt="Jio World Plaza">
                     <div class="card-body p-4">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
@@ -2784,7 +2796,7 @@
                                 <p class="card-text text-muted small">Global shopping hub.</p>
                             </div>
                             <a href="#" class="btn bg-teal text-white btn-circle">
-                                <i class="bi bi-arrow-right"></i>
+                                <i class="bi bi-arrow-up-right"></i>
                             </a>
                         </div>
                     </div>
@@ -2795,8 +2807,7 @@
             <div class="col">
                 <div class="card h-100 rounded-4">
                     <img src="/india3.png" 
-                         onerror="this.src='https://placehold.co/400x300'"
-                         class="card-img-top" alt="City Palace Udaipur">
+                         class="card-img-top p-3" alt="City Palace Udaipur">
                     <div class="card-body p-4">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
@@ -2804,7 +2815,7 @@
                                 <p class="card-text text-muted small">Cultural</p>
                             </div>
                             <a href="#" class="btn bg-teal text-white btn-circle">
-                                <i class="bi bi-arrow-right"></i>
+                                <i class="bi bi-arrow-up-right"></i>
                             </a>
                         </div>
                     </div>
@@ -2847,7 +2858,6 @@
       <a href="#" class="card-image-overlay d-block text-decoration-none">
         <img
           src="/guide2.png"
-          onerror="this.src='https://placehold.co/600x400'"
           alt="A couple standing with moving boxes in a new home"
         />
         <div class="card-content">
@@ -2874,15 +2884,15 @@
     </div>
 
 
-    <div class="container my-4">
+    <div class="container my-5">
 
         <!-- 1. Header Section -->
         <div class="text-center mb-5">
             <!-- Small teal text with dot -->
-            <p class="text-bright-blue fw-semibold text-uppercase mb-2">
-                <span class="dot"></span>
-                TESTIMONIALS
-            </p>
+             <span class="tag-pill">
+                    <i class="bi bi-circle-fill"></i>
+                    Testimonials
+                </span>
             <!-- Main Heading -->
             <h1 class="display-5 fw-bold text-dark mb-3">
                 Success Stories
@@ -2965,7 +2975,7 @@
                 <!-- On mobile, text is centered. On desktop (lg) it's left-aligned */ -->
                 <div class="col-lg-6 col-md-12 py-5 text-center text-lg-start">
                     
-                    <h1 class="display-4 fw-bold text-white mb-3">
+                    <h1 class="display- fw-bold text-white mb-3">
                         Ready to Begin Your Journey?
                     </h1>
                     
@@ -2981,7 +2991,7 @@
                         <a href="#" class="btn btn-white-cta d-inline-flex align-items-center justify-content-between">
                             <span>Get Your Free Quote</span>
                             <span class="btn-arrow-circle">
-                                <i class="bi bi-arrow-right"></i>
+                                <i class="bi bi-arrow-up-right"></i>
                             </span>
                         </a>
                         
@@ -2989,7 +2999,7 @@
                         <a href="#" class="btn btn-white-cta d-inline-flex align-items-center justify-content-between">
                             <span>Talk to an Indian Specialist</span>
                             <span class="btn-arrow-circle">
-                                <i class="bi bi-arrow-right"></i>
+                                <i class="bi bi-arrow-up-right"></i>
                             </span>
                         </a>
                         
@@ -3014,7 +3024,7 @@
             <div class="row g-0">
                 
                 <!-- Left Column: Image Background (Desktop Only) -->
-                <div class="col-lg-5 footer-img-bg">
+                <div class="col-lg-5 footer-img-bg relative">
                     <!-- This div is intentionally empty, styled by CSS -->
                 </div>
 
@@ -3023,10 +3033,9 @@
                     <div class="footer-content">
                         
                         <!-- Logo -->
-                        <div class="row">
+                        <div class="row absolute">
                             <div class="col-12 mb-4">
                                 <img src="/logo.png" 
-                                     onerror="this.src='https://placehold.co/150x50/E2E8F0/4A5568?text=APAC+Logo'"
                                      alt="APAC Relocations Logo" style="height: 40px; width: auto;">
                             </div>
                         </div>
@@ -3034,7 +3043,7 @@
                         <!-- Content Grid -->
                         <div class="row">
                             <!-- Global Offices & Quick Links -->
-                            <div class="col-lg-7 col-md-6 footer-links">
+                            <div class="col-md-6 footer-links">
                                 <div class="row">
                                     <div class="col-12">
                                         <h6 class="footer-heading">Global Offices</h6>
@@ -3065,7 +3074,7 @@
                             </div>
                             
                             <!-- Contact Info -->
-                            <div class="col-lg-5 col-md-6 mt-4 mt-md-0">
+                            <div class="col-md-5 mt-4 mt-md-0 p-4" style="border: 1px solid rgb(227, 225, 225); ">
                                 <h6 class="footer-heading">Contact Info</h6>
                                 <div class="contact-item">
                                     <i class="bi bi-telephone-fill"></i>
@@ -3094,7 +3103,7 @@
                                 <a href="#" class="btn btn-teal-cta d-inline-flex align-items-center justify-content-between">
                                     <span>WhatsApp Chat</span>
                                     <span class="btn-arrow-circle-white">
-                                        <i class="bi bi-arrow-right"></i>
+                                        <i class="bi bi-arrow-up-right"></i>
                                     </span>
                                 </a>
                             </div>
@@ -3110,7 +3119,7 @@
     <div class="footer-copyright text-center p-3 small">
         2025 Moving to India. All rights reserved.
     </div>
-    <div style="height: 100px"></div>
+    <!-- <div style="height: 100px"></div> -->
 
   </body>
 </html>
