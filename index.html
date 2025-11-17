@@ -23,6 +23,7 @@
         background-color: white;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           "Helvetica Neue", Arial, sans-serif;
+        overflow-x: hidden; /* Horizontal scroll rokne ke liye */
       }
 
       :root {
@@ -739,7 +740,7 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* More prominent shadow for the image */
         }
         .image-collages img{
-          width: 400px;
+          width: 100%;
           height: 300px;
         }
         .timeline-steps-wrapper{
@@ -985,7 +986,7 @@
         }
         @media (max-width: 500px) {
           .image-collages img{
-            width: 400px;
+            width: 100%;
           }
         }
             .tag-pill {
