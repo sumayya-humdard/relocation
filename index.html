@@ -1569,7 +1569,7 @@
 
         /* --- Image Background Column --- */
         .footer-img-bg {
-            background-image: url('/foot1.png');
+            /* background-image: url('/foot1.png'); */
             background-color: #e9ecef; /* Fallback color if image fails */
             background-size: cover;
             background-position: center;
@@ -1704,6 +1704,37 @@
   }
 }
 
+@media (min-width: 900px) {
+  .footer-wrapper {
+    position: relative; /* parent ko relative banaye */
+}
+
+.footer-logo {
+    position: absolute;
+    top: 35px;          /* thoda upar uthaye */
+    background: white;
+    padding: 12px;
+    left: 42%;           /* horizontally center */
+    transform: translateX(-50%); /* center align */
+    z-index: 10;         /* upar layer me dikhaye */
+    height: 65px;        /* logo size */
+    border-radius: 15px;
+}
+    .footer-content {
+            padding: 3rem;
+            margin-top: 100px;
+        }
+}
+
+@media (max-width: 500px) {
+  .footer-wrapper {
+    position: relative; /* parent ko relative banaye */
+}
+
+.footer-logo {
+   display: none;
+}
+}
 
     </style>
   </head>
@@ -3128,97 +3159,104 @@
 
      <footer class="footer-main pt-5">
         <div class="container-fluid p-0">
-            <div class="row g-0">
-                
-                <!-- Left Column: Image Background (Desktop Only) -->
-                <div class="col-lg-5 footer-img-bg relative">
-                    <!-- This div is intentionally empty, styled by CSS -->
+           <div class="footer-wrapper">
+
+    <!-- Logo Overlay -->
+    <img src="/logo.png" alt="APAC Relocations Logo" class="footer-logo">
+
+    <div class="row g-0">
+
+        <!-- Left Column: Footer Image -->
+        <div class="col-lg-5 p-0">
+            <img src="/foot1.png" class="img-fluid w-100" alt="">
+        </div>
+        <img src="/logo.png" 
+     alt="APAC Relocations Logo" 
+     class="d-block d-sm-none mx-auto" 
+     style="width: 45%; padding-top: 30px;">
+
+        <!-- Right Column: Content -->
+        <div class="col-lg-7 col-md-12">
+            <div class="footer-content">
+
+                <!-- Content Grid -->
+                <div class="row">
+                    <!-- Global Offices & Quick Links -->
+                    <div class="col-md-6 footer-links">
+                        <h6 class="footer-heading">Global Offices</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Ridley, MY</a></li>
+                            <li><a href="#">Selatong, MY</a></li>
+                            <li><a href="#">Defena, Australia</a></li>
+                        </ul>
+
+                        <h6 class="footer-heading mt-4">Quick Links</h6>
+                        <div class="row">
+                            <div class="col-6">
+                                <ul class="list-unstyled">
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Career</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-6">
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Moving</a></li>
+                                    <li><a href="#">Services</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="col-md-5 mt-4 mt-md-0 p-4 border">
+                        <h6 class="fw-semibold text-black">Contact Info</h6>
+
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="bi bi-telephone-fill"></i>
+                            <span class="fw-semibold text-black">+91 999 999 999</span>
+                        </div>
+
+                        <div class="mt-3">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-geo-alt-fill"></i>
+                                <p class="mb-0 fw-semibold text-black">Address</p>
+                            </div>
+                            <span class="d-block mt-1">Ridley, MY, Selatong, MY, Defena, Australia</span>
+                        </div>
+
+                        <div class="mt-3">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-envelope-fill"></i>
+                                <p class="mb-0 fw-semibold text-black">Contact</p>
+                            </div>
+                            <span class="d-block mt-1">contact@apac.com</span>
+                        </div>
+
+                        <div class="d-flex gap-2 mt-3">
+                            <a href="#" class="btn btn-social"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="btn btn-social"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="btn btn-social"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="btn btn-social"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+
                 </div>
 
-                <!-- Right Column: Content -->
-                <div class="col-lg-7 col-md-12">
-                    <div class="footer-content">
-                        
-                        <!-- Logo -->
-                        <div class="row absolute">
-                            <div class="col-12 mb-4">
-                                <img src="/logo.png" 
-                                     alt="APAC Relocations Logo" style="height: 40px; width: auto;">
-                            </div>
-                        </div>
-                        
-                        <!-- Content Grid -->
-                        <div class="row">
-                            <!-- Global Offices & Quick Links -->
-                            <div class="col-md-6 footer-links">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <h6 class="footer-heading">Global Offices</h6>
-                                        <ul class="list-unstyled">
-                                            <li><a href="#">Ridley, MY</a></li>
-                                            <li><a href="#">Selatong, MY</a></li>
-                                            <li><a href="#">Defena, Auatral</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-12 mt-3">
-                                        <h6 class="footer-heading">Quick Links</h6>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <ul class="list-unstyled">
-                                                    <li><a href="#">About</a></li>
-                                                    <li><a href="#">Career</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-6">
-                                                <ul class="list-unstyled">
-                                                    <li><a href="#">Moving</a></li>
-                                                    <li><a href="#">Services</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Contact Info -->
-                            <div class="col-md-5 mt-4 mt-md-0 p-4" style="border: 1px solid rgb(227, 225, 225); ">
-                                <h6 class="footer-heading">Contact Info</h6>
-                                <div class="contact-item">
-                                    <i class="bi bi-telephone-fill"></i>
-                                    <span>+91 999 999 999</span>
-                                </div>
-                                <div class="contact-item">
-                                    <i class="bi bi-geo-alt-fill"></i>
-                                    <span>Ridley, MY, Selatong, MY, Defena, Auatral</span>
-                                </div>
-                                <div class="contact-item">
-                                    <i class="bi bi-envelope-fill"></i>
-                                    <span>contact@apac.com</span>
-                                </div>
-                                <div class="d-flex gap-2 mt-3">
-                                  <a href="#" class="btn btn-social" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                                    <a href="#" class="btn btn-social" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                                    <a href="#" class="btn btn-social" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
-                                    <a href="#" class="btn btn-social" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                <!-- WhatsApp Button -->
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <a href="#" class="btn btn-teal-cta d-flex align-items-center justify-content-between">
+                            <span>WhatsApp Chat</span>
+                            <span><i class="bi bi-arrow-up-right"></i></span>
+                        </a>
+                    </div>
+                </div>
 
-                        <!-- WhatsApp Button -->
-                        <div class="row mt-5">
-                            <div class="col-12">
-                                <a href="#" class="btn btn-teal-cta d-inline-flex align-items-center justify-content-between">
-                                    <span>WhatsApp Chat</span>
-                                    <span class="btn-arrow-circle-white">
-                                        <i class="bi bi-arrow-up-right"></i>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div> <!-- /end .footer-content -->
-                </div> <!-- /end .col-lg-7 -->
-            </div> <!-- /end .row -->
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- /end .row -->
         </div> <!-- /end .container-fluid -->
     </footer>
 
