@@ -1908,7 +1908,7 @@
                 Get a personalized quote below.
               </h4>
 
-              <form>
+              <form enctype="multipart/form-data">
                 <div class="row g-3 g-lg-4">
                   
                   <div class="col-12">
@@ -1984,16 +1984,16 @@
 
                   <div class="col-12 col-md-6">
                     <label for="fullHousehold" class="form-label fw-bold"
-                      >Full Household</label
+                      >Why are You Moving</label
                     >
                     <div class="input-with-icon">
-                      <i class="fa-solid fa-building input-icon"></i>
+                      <i class="fa-solid fa-house input-icon"></i>
                       <select class="form-select" id="fullHousehold">
-                        <option selected>Select moving type</option>
-                        <option>Full Household</option>
-                        <option>Partial Household</option>
-                        <option>Few Furnitures</option>
-                        <option>Few Boxes</option>
+                          <option selected value="">Select moving type</option>
+                          <option value="full_household">Full Household</option>
+                          <option value="partial_household">Partial Household</option>
+                          <option value="partial_household">Few Furnitures</option>
+                          <option value="few_boxes">Few Boxes</option>
                       </select>
                     </div>
                   </div>
@@ -2006,6 +2006,177 @@
                         </div>
                   </div>
 
+                  <div id="designContainer"  style="display: none; margin-top: 20px;">
+                        <div class="row g-3 rounded">
+                             <div class="col-12 col-md-6">
+                                <label class="form-label fw-bold">Uploading Image or Vidio</label>
+                                
+                                <input type="file" id="fileUpload" accept="image/*, video/*" class="d-none" onchange="showFileName()">
+
+                                <label for="fileUpload" class="form-control d-flex align-items-center justify-content-start text-muted" style="cursor: pointer; height: auto; padding: 14px; ">
+                                    <i class="fa-solid fa-cloud-arrow-up me-2"></i> <span id="uploadText">Calculate Shipping Volume by Uploading Images or Video</span>
+                                </label>
+                            </div>
+
+                              <div class="col-12 col-md-6">
+                                  <label for="movingDate" class="form-label fw-bold">Shiping Volume</label>
+                                  <div class="input-with-icon">
+                                      <i class="fa-solid fa-calendar-alt input-icon"></i>
+                                      <input type="text" class="form-control" placeholder="Enter Shiping Volume (CBM)" >
+                                  </div>
+                              </div>
+                        </div>
+                    <div class="form-check p-3 d-flex" style="margin-left: 10px;">
+                        <input class="form-check-input me-2" type="checkbox" id="preMove">
+                        <label class="form-check-label fw-semibold" for="preMove">
+                            Arrange Pre-Move Survey
+                        </label>
+                    </div>
+                    <div id="surveyDetails" class=" mt-2" style="display: none; margin-left: 10px;">
+                        <div class="row g-3">
+                            
+                            <div class="col-md-6">
+                                <label for="surveyDate" class="form-label fw-semibold">Pre-Move Survey</label>
+                                <div class="input-with-icon">
+                            <i class="fa-solid fa-calendar-alt input-icon"></i>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="movingDate" 
+                                placeholder="Select Pre-Move Survey Date"
+                                onfocus="(this.type='date')"
+                                onblur="if(!this.value) this.type='text'"
+                            >
+                        </div>
+                            </div>
+
+                          <div class="col-md-6">
+                              <label for="surveyTime" class="form-label">Time slot</label>
+                              
+                              <div class="input-with-icon">
+                                  <i class="fa-solid fa-clock input-icon"></i>
+                                  
+                                  <input 
+                                      type="text" 
+                                      class="form-control" 
+                                      id="surveyTime"
+                                      placeholder="Select Time Slot" 
+                                      onfocus="(this.type='time')" 
+                                      onblur="if(!this.value) this.type='text'"
+                                  >
+                              </div>
+                          </div>
+
+                        </div>
+                    </div>
+                  </div>
+
+                  <div id="designContainer" style="display: none; margin-top: 20px;">
+                      <div class="alert alert-info">Full Household Section Visible</div>
+                  </div>
+
+                  <div id="partialContainer" style="display: none; margin-top: 20px;">
+                    <div class="row g-3 rounded align-items-end">
+                        <div class="col-12 col-md-5">
+                            <label class="form-label fw-bold">Uploading Image or Video</label>
+                            
+                            <input type="file" id="fileUpload" accept="image/*, video/*" class="d-none" onchange="showFileName()">
+
+                            <label for="fileUpload" class="form-control d-flex align-items-center justify-content-start text-muted" style="cursor: pointer; height: auto; padding: 10px;">
+                                <i class="fa-solid fa-cloud-arrow-up me-2"></i> 
+                                <span id="uploadText" style="font-size: 14px;">Upload Media</span>
+                            </label>
+                        </div>
+
+                        <div class="col-12 col-md-2 text-center">
+                            <span class="">OR</span>
+                        </div>
+
+                        <div class="col-12 col-md-5">
+                            <label for="shippingVolume" class="form-label fw-bold">Shipping Volume</label>
+                            <div class="input-with-icon">
+                                <i class="fa-solid fa-box-open input-icon"></i>
+                                <input type="text" class="form-control" placeholder="Enter Volume (CBM)" id="shippingVolume">
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-12 mt-4">
+                    <label for="fullHousehold" class="form-label fw-bold"
+                      >List of the items</label
+                    >
+                    <div class="input-with-icon">
+                      <i class="fa-solid fa-house input-icon"></i>
+                      <select class="form-select">
+                          <option selected >List down all the items</option>
+                          <option>List 1</option>
+                          <option>List 2</option>
+                          <option>List 3</option>
+                          <option>List 4 </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  </div>
+
+                  <div id="fewBoxesContainer" style="display: none; margin-top: 20px;">
+          
+                      <div class="row g-3 mb-3">
+                          
+                          <div class="col-12 col-md-4">
+                              <label class="form-label fw-bold">Size of the box</label>
+                              <div class="input-with-icon">
+                                  <i class="fa-solid fa-box input-icon"></i> 
+                                  <select class="form-select">
+                                      <option selected>Select Size </option>
+                                      <option>Small (50 cms X 50 cms X 50 cms)</option>
+                                      <option>Medium (150 cms X 150 cms X 150 cms)</option>
+                                      <option>Large (300 cms X 300 cms X 300 cms)</option>
+                                  </select>
+                              </div>
+                          </div>
+
+                          <div class="col-12 col-md-4">
+                              <label class="form-label fw-bold">Number of boxes</label>
+                              <div class="input-with-icon">
+                                  <i class="fa-solid fa-layer-group input-icon"></i>
+                                  <input type="number" class="form-control" placeholder="Enter the number of boxes">
+                              </div>
+                          </div>
+
+                          <div class="col-12 col-md-4">
+                              <label class="form-label fw-bold">Weight (per box)</label>
+                              <div class="input-with-icon">
+                                  <i class="fa-solid fa-weight-hanging input-icon"></i>
+                                  <input type="number" class="form-control" placeholder="Enter the weight of each box (kg)">
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="row g-3">
+                          
+                          <div class="col-12 col-md-6">
+                              <label class="form-label fw-bold">List of items</label>
+                              <div class="input-with-icon">
+                                  <i class="fa-solid fa-list-check input-icon"></i> 
+                                  <input type="text" class="form-control" placeholder="List down all items">
+                              </div>
+                          </div>
+
+                          <div class="col-12 col-md-6">
+                              <label class="form-label fw-bold">Transport mode</label>
+                              <div class="input-with-icon">
+                                  <i class="fa-solid fa-truck-fast input-icon"></i> 
+                                  <select class="form-select">
+                                      <option selected>Select Transport Mode</option>
+                                      <option>By Road</option>
+                                      <option>By Sea</option>
+                                      <option>By Road</option>
+                                  </select>
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
                   <div class="col-12 mt-4 text-center d-none d-md-block">
                     <button type="submit" class="btn btn-brand-full">
                       Get a Quote
@@ -3266,7 +3437,29 @@
     </div>
     <!-- <div style="height: 100px"></div> -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    const dropdowns = document.getElementById('fullHousehold');
+    
+    // Dono containers ko select karein
+    const fullSection = document.getElementById('designContainer');
+    const partialSection = document.getElementById('partialContainer');
 
+    dropdowns.addEventListener('change', function() {
+        // Step 1: Pehle sab kuch chhupa dein (Hide All)
+        fullSection.style.display = 'none';
+        partialSection.style.display = 'none';
+
+        // Step 2: Check karein konsa option select hua hai
+        if (this.value === 'full_household') {
+            // Show Full Household Section
+            fullSection.style.display = 'block';
+            
+        } else if (this.value === 'partial_household') {
+            // Show Partial Household Section
+            partialSection.style.display = 'block';
+        }
+    });
+</script>
 <script>
   var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
@@ -3286,6 +3479,73 @@
       clickable: true,
     },
   });
+</script>
+<script>
+    // 1. Select the elements
+    const dropdown = document.getElementById('fullHousehold');
+    const designContainer = document.getElementById('designContainer');
+
+    // 2. Add an event listener for when the change happens
+    dropdown.addEventListener('change', function() {
+        
+        // 3. Check if the selected value is "full_household"
+        if (this.value === 'full_household') {
+            // Show the design
+            designContainer.style.display = 'block'; 
+        } else {
+            // Hide the design for any other selection
+            designContainer.style.display = 'none'; 
+        }
+    });
+</script>
+<script>
+    // Select the elements
+    const preMoveCheckbox = document.getElementById('preMove');
+    const surveyDetails = document.getElementById('surveyDetails');
+
+    // Listen for changes on the checkbox
+    preMoveCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            // If checked, show the inputs
+            surveyDetails.style.display = 'block';
+        } else {
+            // If unchecked, hide them
+            surveyDetails.style.display = 'none';
+        }
+    });
+</script>
+<script>
+    // 1. Select Dropdown
+    var dropdownss = document.getElementById('fullHousehold'); 
+    
+    // 2. Select All Containers
+    var fullSections = document.getElementById('designContainer');
+    var partialSections = document.getElementById('partialContainer');
+    var boxesSection = document.getElementById('fewBoxesContainer'); // New variable
+
+    // 3. Function to Hide All Sections
+    function hideAll() {
+        if(fullSections) fullSections.style.display = 'none';
+        if(partialSections) partialSections.style.display = 'none';
+        if(boxesSection) boxesSection.style.display = 'none';
+    }
+
+    // 4. Event Listener
+    dropdownss.addEventListener('change', function() {
+        
+        hideAll(); // Pehle sab chhupa do
+
+        if (this.value === 'full_household') {
+            if(fullSections) fullSections.style.display = 'block';
+
+        } else if (this.value === 'partial_household') {
+            if(partialSections) partialSections.style.display = 'block';
+
+        } else if (this.value === 'few_boxes') {
+            // Show Boxes Section
+            if(boxesSection) boxesSection.style.display = 'block';
+        }
+    });
 </script>
   </body>
 </html>
