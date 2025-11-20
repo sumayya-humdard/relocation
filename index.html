@@ -1735,6 +1735,17 @@
    display: none;
 }
 }
+@media (min-width: 700px) {
+  .w{
+    width: 595px;
+  }
+}
+.select-no-arrow {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    background-image: none !important;
+}
 
     </style>
   </head>
@@ -2007,7 +2018,7 @@
                   </div>
 
                   <div id="designContainer"  style="display: none; margin-top: 20px;">
-                        <div class="row g-3 rounded">
+                        <div class="row g-4 rounded justify-content-center">
                              <div class="col-12 col-md-6">
                                 <label class="form-label fw-bold">Uploading Image or Vidio</label>
                                 
@@ -2032,8 +2043,8 @@
                             Arrange Pre-Move Survey
                         </label>
                     </div>
-                    <div id="surveyDetails" class=" mt-2" style="display: none; margin-left: 10px;">
-                        <div class="row g-3">
+                    <div id="surveyDetails" class=" mt-2" style="display: none; ">
+                        <div class="row g-4">
                             
                             <div class="col-md-6">
                                 <label for="surveyDate" class="form-label fw-semibold">Pre-Move Survey</label>
@@ -2047,7 +2058,7 @@
                                 onfocus="(this.type='date')"
                                 onblur="if(!this.value) this.type='text'"
                             >
-                        </div>
+                            </div>
                             </div>
 
                           <div class="col-md-6">
@@ -2076,23 +2087,23 @@
                   </div>
 
                   <div id="partialContainer" style="display: none; margin-top: 20px;">
-                    <div class="row g-3 rounded align-items-end">
-                        <div class="col-12 col-md-5">
+                    <div class="row g-3 rounded align-items-center justify-content-center">
+                        <div class="col-12 w">
                             <label class="form-label fw-bold">Uploading Image or Video</label>
                             
                             <input type="file" id="fileUpload" accept="image/*, video/*" class="d-none" onchange="showFileName()">
 
-                            <label for="fileUpload" class="form-control d-flex align-items-center justify-content-start text-muted" style="cursor: pointer; height: auto; padding: 10px;">
-                                <i class="fa-solid fa-cloud-arrow-up me-2"></i> 
-                                <span id="uploadText" style="font-size: 14px;">Upload Media</span>
+                            <label for="fileUpload" class="form-control d-flex align-items-center justify-content-start text-muted" style="cursor: pointer; height: auto; padding: 16px;">
+                                <i class="fa-solid fa-cloud-arrow-up"></i> 
+                                <span id="uploadText" style="font-size: 14px; padding-left: 7px;">Upload Media</span>
                             </label>
                         </div>
 
-                        <div class="col-12 col-md-2 text-center">
+                        <div class="col-12 col-md-auto pt-4">
                             <span class="">OR</span>
                         </div>
 
-                        <div class="col-12 col-md-5">
+                        <div class="col-12 w">
                             <label for="shippingVolume" class="form-label fw-bold">Shipping Volume</label>
                             <div class="input-with-icon">
                                 <i class="fa-solid fa-box-open input-icon"></i>
@@ -2106,7 +2117,7 @@
                     >
                     <div class="input-with-icon">
                       <i class="fa-solid fa-house input-icon"></i>
-                      <select class="form-select">
+                      <select class="form-select select-no-arrow">
                           <option selected >List down all the items</option>
                           <option>List 1</option>
                           <option>List 2</option>
@@ -2120,7 +2131,7 @@
 
                   <div id="fewBoxesContainer" style="display: none; margin-top: 20px;">
           
-                      <div class="row g-3 mb-3">
+                      <div class="row g-4 mb-3">
                           
                           <div class="col-12 col-md-4">
                               <label class="form-label fw-bold">Size of the box</label>
@@ -2152,7 +2163,7 @@
                           </div>
                       </div>
 
-                      <div class="row g-3">
+                      <div class="row g-4">
                           
                           <div class="col-12 col-md-6">
                               <label class="form-label fw-bold">List of items</label>
