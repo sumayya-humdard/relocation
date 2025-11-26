@@ -1,1832 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>APAC Relocation</title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <style>
-      /* --- General & Brand Colors --- */
- 
-      body {
-        background-color: white;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
-      }
-
-      :root {
-        --brand-teal: #00a79d;
-        --highlight-blue: #00b9ecf8;
-        --input-bg: #f6f6f6;
-        --icon-bg: #343a40;
-      }
-
-      /* ---
-      TABLET & DESKTOP NAVBAR
-      --- */
-      .navbar-desktop {
-        position: absolute;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 86%;
-        z-index: 100;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      }
-
-      .navbar-desktop .navbar-brand img {
-        height: 40px;
-      }
-
-      .navbar-desktop .navbar-nav .nav-link {
-        font-weight: 3400;
-        color: #585858;
-        margin: 0 0.5rem;
-      }
-
-      .navbar-desktop .navbar-nav .nav-link.active,
-      .navbar-desktop .navbar-nav .nav-link:hover {
-        color: #0B9D9A;
-      }
-
-      .navbar-desktop .btn-brand {
-        background-color: var(--brand-teal);
-        border-color: var(--brand-teal);
-        color: #fff;
-        font-weight: 500;
-        padding: 0.5rem 1.25rem;
-        border-radius: 8px;
-      }
-
-      /* ---
-      MOBILE NAVBAR
-      --- */
-      .navbar-mobile {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 100;
-        background-color: transparent;
-        padding: 1rem;
-      }
-      .navbar-mobile .navbar-brand img {
-        height: 35px;
-      }
-      .navbar-mobile .navbar-toggler {
-        border: none;
-        background-color: rgba(255, 255, 255, 0.9);
-        border-radius: 8px;
-        padding: 0.5rem 0.6rem;
-      }
-      .navbar-mobile .navbar-toggler-icon {
-        width: 1.2em;
-        height: 1.2em;
-      }
-      .navbar-mobile .navbar-collapse {
-        background-color: white;
-        padding: 1rem;
-        border-radius: 8px;
-        margin-top: 0.5rem;
-      }
-      .navbar-mobile .navbar-nav .nav-link {
-        color: #333;
-      }
-
-      /* ---
-      TABLET & DESKTOP HERO SECTION
-      --- */
-      .hero-section-desktop {
-        position: relative;
-        background-color: #f5f5f5;
-        padding: 120px 0px 140px 0px;
-      }
-
-      .hero-section-desktop .hero-content {
-        padding-top: 4rem;
-        padding-bottom: 8rem;
-        position: relative;
-        width: 650px;
-        z-index: 5;
-      }
-
-      .hero-section-desktop .hero-image-col {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: calc(100% * 7 / 12);
-        background-image: url("/hero.png");
-        background-size: cover;
-        background-position: center;
-        min-height: 500px;
-        max-width: 600px;
-        z-index: 1;
-      }
-
-      .hero-section-desktop .pill-tag {
-        display: inline-block;
-        padding: 0.35rem 0.85rem;
-        background-color: #f0f3f5;
-        border-radius: 50px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: #0B9D9A;
-        border: 1px solid #0B9D9A;
-      }
-
-      .hero-section-desktop .hero-heading {
-        font-size: 2.75rem;
-        font-weight: 700;
-        line-height: 1.3;
-      }
-      .hero-section-desktop .hero-heading .highlight1 {
-        background-color: var(--highlight-blue);
-        color: white;
-        border-top-left-radius: 32px;
-        border-top-right-radius: 32px;
-        border-bottom-right-radius: 32px;
-        border-bottom-left-radius: 0;
-        padding: 0em 0.2em;
-      }
-      .hero-section-desktop .hero-heading .highlight2 {
-        background-color: var(--highlight-blue);
-        color: white;
-        border-top-left-radius: 32px;
-        border-top-right-radius: 0px;
-        border-bottom-right-radius: 32px;
-        border-bottom-left-radius: 32px;
-        padding: 0em 0.2em;
-      }
-
-      /* ---
-      MOBILE HERO SECTION
-      --- */
-      .hero-section-mobile {
-        position: relative;
-        padding: 6rem 1rem 5rem 1rem;
-        background-image: url("/hero.png");
-        background-size: cover;
-        background-position: center;
-        color: #fff;
-        text-align: center;
-      }
-      .hero-section-mobile::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1;
-      }
-      .hero-section-mobile .hero-content-mobile {
-        position: relative;
-        padding-top: 140px;
-        z-index: 2;
-      }
-      .hero-section-mobile .pill-tag-mobile {
-        display: inline-block;
-        padding: 0.35rem 1rem;
-        border: 1.5px solid #fff;
-        border-radius: 50px;
-        font-size: 0.7rem;
-        font-weight: 600;
-        color: #fff;
-        margin-bottom: 1rem;
-      }
-      .hero-section-mobile .hero-heading-mobile {
-        font-size: 1.6rem;
-        font-weight: 700;
-        line-height: 1.3;
-        margin-bottom: 1rem;
-      }
-      .hero-section-mobile .hero-subheading-mobile {
-        font-size: 1rem;
-        font-weight: 400;
-        opacity: 0.9;
-        max-width: 340px;
-        margin: 0 auto;
-      }
-
-      /* ---
-      FORM SECTION (COMMON STYLES)
-      --- */
-      .form-section {
-        position: relative;
-        z-index: 10;
-        margin-top: -15rem; /* DEFAULT (Desktop) overlap */
-      }
-      .form-card {
-        background: #fff;
-        border-radius: 6px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        padding: 2.5rem;
-      }
-      .form-label.fw-bold {
-        font-weight: 600 !important;
-      }
-
-      /* --- DESKTOP Form Heading --- */
-      .form-heading-desktop {
-        font-weight: 500;
-        text-align: left;
-        margin-bottom: 2rem;
-        font-size: 1.5rem;
-      }
-
-      /* --- MOBILE Form Heading --- */
-      .form-heading-mobile {
-        font-weight: 600;
-        text-align: left;
-        margin-bottom: 2rem;
-        font-size: 1.4rem;
-      }
-
-      /* ---
-      TABLET & DESKTOP Form Inputs
-      --- */
-      .input-with-icon {
-        position: relative;
-      }
-      /* Desktop circular icons */
-      .input-with-icon .input-icon {
-        position: absolute;
-        left: 1rem;
-        top: 50%;
-        transform: translateY(-50%);
-        pointer-events: none;
-        color: var(--icon-bg);
-        /* color: #fff; */
-        height: 40px;
-        width: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.1rem;
-        z-index: 3;
-      }
-      .form-control,
-      .form-select {
-        background-color: var(--input-bg);
-        border: none;
-        border-radius: 8px;
-        padding-top: 0.85rem;
-        padding-bottom: 0.85rem;
-        padding-left: 3.5rem; /* Desktop icon ke liye space */
-        font-weight: 500;
-      }
-      .form-control::placeholder {
-        color: #888;
-      }
-      .form-select {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
-        background-repeat: no-repeat;
-        background-position: right 1rem center;
-        background-size: 16px 12px;
-        appearance: none;
-      }
-      /* Desktop Dotted Line */
-      .dotted-line-target::before {
-        content: "";
-        position: absolute;
-        left: calc(1rem + 14px); /* 1rem padding + 14px icon radius */
-        top: -1rem;
-        height: 1rem;
-        border-left: 2px dotted #ccc;
-      }
-
-      /* --- DESKTOP Button --- */
-      .btn-brand-full {
-        background-color: var(--brand-teal);
-        border-color: var(--brand-teal);
-        color: #fff;
-        font-weight: 600;
-        font-size: 1.1rem;
-        padding: 0.55rem 4.4rem;
-        border-radius: 50px;
-      }
-      .btn-brand-full:hover {
-        background-color: #008f86;
-        border-color: #008f86;
-        color: #fff;
-      }
-
-      /* --- MOBILE Button --- */
-      .btn-brand-mobile {
-        background-color: var(--brand-teal);
-        border-color: var(--brand-teal);
-        color: #fff;
-        font-weight: 600;
-        font-size: 1.1rem;
-        padding: 0.65rem;
-        border-radius: 50px;
-        width: 70%;
-        align-items: center;
-        margin: 0 auto;
-        display: block;
-        text-align: center;
-      }
-
-      /* ---
-      ====================================
-      MOBILE RESPONSIVE OVERRIDES (CHANGED TO MD)
-      ====================================
-      --- */
-      /* Yeh styles ab 767.98px tak apply hongay (yaani sirf mobile) */
-      @media (max-width: 767.98px) {
-        
-        /* Form Overlap ko adjust karein */
-        .form-section {
-          margin-top: -3rem; /* Mobile par overlap */
-          padding: 0 0.5rem; /* Side padding */
-        }
-
-        .form-card {
-          padding: 1.5rem; /* Mobile par card ki padding kam */
-          border-top-left-radius: 5px;
-          border-top-right-radius: 5px;
-        }
-
-        /* --- MOBILE Form Icon Overrides --- */
-        .input-with-icon .input-icon {
-          /* Circular background hatayein */
-          background-color: transparent;
-          color: #6c757d; /* Icon ko dark karein */
-          height: auto;
-          width: auto;
-          /* Position adjust karein */
-          left: 1.25rem;
-          font-size: 1rem; /* Icon thora bara */
-        }
-
-        .form-control,
-        .form-select {
-          padding-left: 3.25rem; /* Mobile icon ke liye padding adjust karein */
-        }
-
-        /* Mobile Dotted Line Adjust */
-        .dotted-line-target::before {
-          left: calc(1.25rem + 7px); /* Mobile icon ke center mein */
-          top: -1.25rem;
-          height: 1.25rem;
-        }
-      }
-
-
-
-
-      /* section 2 */
-
-
-
-
-      .ai-assistant-section {
-            margin-top: 100px;
-            background: var(--brand-teal);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Background Pattern (concentric circles) */
-        .ai-assistant-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M50 0c27.614 0 50 22.386 50 50s-22.386 50-50 50S0 77.614 0 50 22.386 0 50 0zm0 10c22.091 0 40 17.909 40 40s-17.909 40-40 40S10 72.091 10 50 27.909 10 50 10zm0 10c16.569 0 30 13.431 30 30s-13.431 30-30 30S20 66.569 20 50 33.431 20 50 20zm0 10c11.046 0 20 8.954 20 20s-8.954 20-20 20S30 61.046 30 50 38.954 30 50 30zm0 10c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10z"/%3E%3C/g%3E%3C/svg%3E');
-            background-size: 80px 80px; /* Adjust size of the pattern */
-            opacity: 0.2; /* Lighter opacity */
-            z-index: 1;
-        }
-
-        .ai-assistant-section .container {
-            position: relative;
-            z-index: 2; /* Content upar dikhne ke liye */
-        }
-
-        .ai-assistant-section .status-indicator {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            /* background-color: rgba(255, 255, 255, 0.2); */
-            border: 1px solid rgb(231, 231, 231);
-            border-radius: 20px;
-            padding: 5px 15px;
-            margin-bottom: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .ai-assistant-section .status-indicator .dot {
-            width: 8px;
-            height: 8px;
-            background-color: white; /* Green dot */
-            border-radius: 50%;
-        }
-
-        .ai-assistant-section h1 {
-            font-size: 2.8rem;
-            font-weight: semibold;
-            margin-bottom: 20px;
-        }
-
-        .ai-assistant-section p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .ai-assistant-section .search-input-container {
-            /* max-width: 800px; */
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .ai-assistant-section .search-input {
-            width: 100%;
-            padding: 18px 25px 18px 55px; /* Left padding for icon */
-            border: none;
-            border-radius: 10px;
-            font-size: 1.05rem;
-            color: #333;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .ai-assistant-section .search-input::placeholder {
-            color: #888;
-        }
-
-        .ai-assistant-section .search-input-icon {
-            position: absolute;
-            left: 25px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #666;
-            font-size: 1.1rem;
-            pointer-events: none;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .ai-assistant-section {
-                padding: 60px 15px;
-            }
-            .ai-assistant-section h1 {
-                font-size: 2.2rem;
-            }
-            .ai-assistant-section p {
-                font-size: 1rem;
-                margin-bottom: 30px;
-            }
-            .ai-assistant-section .search-input {
-                padding: 15px 20px 15px 50px;
-            }
-            .ai-assistant-section .search-input-icon {
-                left: 20px;
-                font-size: 1rem;
-            }
-            .ai-assistant-section::before {
-                background-size: 60px 60px; /* Adjust pattern size for smaller screens */
-            }
-        }
-
-        @media (max-width: 576px) {
-            .ai-assistant-section h1 {
-                font-size: 1.8rem;
-            }
-            .ai-assistant-section p {
-                font-size: 0.9rem;
-            }
-        }
-
-
-
-        /* section 3 */
-
-     .choose-us-section {
-            padding: 6rem 0;
-        }
-
-        /* * This is the main card style for the 4 boxes
-         */
-        .feature-card {
-            background-color: #F5F5F5; /* Light gray background */
-            padding: .5rem 1rem;           /* Generous padding inside */
-            height: 100%;              /* Ensures cards in a row are same height */
-            border: 1px solid #f0f0f0; /* Very subtle border */
-        }
-        
-        /* * This styles the light-blue circle behind the icon 
-         */
-        .icon-wrapper {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.25rem;
-            
-            /* Icon circle color */
-            background-color: #e9f9f7; 
-        }
-
-        /* * This styles the icon itself 
-         */
-        .icon-wrapper i {
-            font-size: 1.5rem;
-            /* Icon color */
-            color: #11B8ED; 
-        }
-
-        .feature-card h5 {
-            font-weight: 600; /* Bold heading */
-            color: #212529;   /* Dark text */
-            margin-bottom: 0.25rem;
-        }
-
-        .feature-card p {
-            color: #6c757d; /* Muted paragraph text */
-            font-size: 0.55rem;
-            line-height: 1.6;
-        }
-
-        /* * Styles for the right-side text content 
-         */
-        .text-content .tag-pill {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            border-radius: 50px; /* Pill shape */
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            
-            /* Pill colors */
-            /* background-color: #e9f9f7; */
-            color: #27c4b0;
-        }
-
-        .text-content h2 {
-            font-size: 2.75rem;
-            font-weight: 700;
-            color: #212529;
-            margin-top: 1rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .text-content .lead-text {
-            font-size: 1.15rem;
-            color: #5a6673;
-            line-height: 1.7;
-        }
-
-        /* section 4 */
-
-        .moving-process-section {
-            padding: 6rem 0; /* Generous padding top/bottom */
-            background: #F5F5F5;
-        }
-
-        /* Top header styles */
-        .process-header .tag-pill {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            color: #27c4b0; /* Darker green-blue */
-            border: 1px solid #27c4b0;
-            margin-bottom: 0.75rem;
-            position: relative; /* For the small dot */
-            padding-left: 1.5rem; /* Space for the dot */
-        }
-
-        .process-header .tag-pill::before {
-            content: '';
-            position: absolute;
-            left: 0.7rem; /* Position the dot */
-            top: 50%;
-            transform: translateY(-50%);
-            width: 8px;
-            height: 8px;
-            background-color: #27c4b0; 
-            border-radius: 50%;
-        }
-
-        .process-header h2 {
-            font-size: 2.75rem; /* Large, bold heading */
-            font-weight: 700;
-            color: #212529;
-            margin-top: 1rem;
-            margin-bottom: 3rem; /* Space below heading */
-        }
-
-        /* Left-side timeline/process cards */
-        .process-timeline {
-            position: relative; /* For the vertical line */
-            padding-left: 2rem; /* Space for dots and line */
-        }
-
-        
-
-.process-timeline::before {
-    content: '';
-    position: absolute;
-    left: 1rem;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-image: linear-gradient(#77b3e3 33%, rgba(255, 255, 255, 0) 0%);
-    background-position: right;
-    background-size: 2px 8px; /* dot height spacing */
-    background-repeat: repeat-y;
-}
-
-
-        .process-item {
-            position: relative;
-            margin-bottom: 1.5rem; /* Space between items */
-        }
-
-        .process-item:last-child {
-            margin-bottom: 0; /* No margin after the last item */
-        }
-
-        .process-item .dot {
-            position: absolute;
-            left: -1.60rem; /* Adjust to align with the vertical line */
-            top: 0.4rem; /* Position of the dot relative to item */
-            width: 22px; /* Size of the dot */
-            height: 22px;
-            background-color: #11B8ED; /* Dot color */
-            border-radius: 50%;
-            z-index: 1; /* Ensure dot is above the line */
-            border: 3px solid #fdfdfd; /* White border to make it stand out from line */
-        }
-
-        .process-card {
-            background-color: #f8f9fa; /* Light gray card background */
-            border-radius: 0.75rem; /* Rounded corners */
-            padding: 1.5rem 2rem; /* Padding inside the card */
-            border: none; /* No border */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Subtle shadow */
-            margin-left: 0.5rem; /* Slight indent from line */
-        }
-
-        .process-card h5 {
-            font-weight: 700; /* Bold title */
-            color: #212529;
-            margin-bottom: 0.5rem;
-        }
-
-        .process-card p {
-            color: #6c757d; /* Muted paragraph text */
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-
-        /* Right-side image styling */
-        .process-image-wrapper img {
-            object-fit: cover; /* Cover the area, crop if necessary */
-            height: 100%; /* Ensure image fills its container height */
-            max-height: 700px; /* Minimum height for the image on larger screens */
-            width: 100%;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* More prominent shadow for the image */
-        }
-        @media (min-width: 765px) and (max-width: 992px) {
-            .process-card h5 {
-            font-weight: 700; /* Bold title */
-            color: #212529;
-            margin-bottom: 0.5rem;
-        }
-
-        .process-card p {
-            color: #6c757d; /* Muted paragraph text */
-            font-size: 0.65rem;
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-        .process-image-wrapper img {
-            object-fit: cover; /* Cover the area, crop if necessary */
-            height: 650px; /* Ensure image fills its container height */
-            width: 100%;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* More prominent shadow for the image */
-        }
-        .image-collages img{
-          width: 100%;
-          height: 300px;
-        }
-        .timeline-steps-wrapper{
-          padding: 6  0px 0px;
-        }
-        }
-
-        /* Purana: .moving-process-section */
-    .steps-area {
-        padding: 3rem 0; /* Section mein upar-neeche space */
-    }
-
-    /* Purana: .process-header */
-    .steps-header .steps-tag {
-        display: inline-block;
-        padding: 0.5rem 1.25rem;
-        border-radius: 50px;
-        font-size: 0.8rem;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        
-        /* Pill tag ka style */
-        color: #0B9D9A;
-        border: 1px solid #0B9D9A;
-        
-        position: relative; /* Dot ke liye */
-        padding-left: 2rem; /* Dot ke liye space */
-    }
-
-    /* Purana: .tag-pill::before */
-    .steps-header .steps-tag::before {
-        content: '';
-        position: absolute;
-        left: 0.75rem;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 10px;
-        height: 10px;
-        background-color: #0B9D9A;
-        border-radius: 50%;
-    }
-
-    /* Purana: .process-header h2 */
-    .steps-header h2 {
-        font-size: 2rem; /* Badi heading */
-        font-weight: 700;
-        color: #212529;
-    }
-
-    /* Purana: .process-card-item */
-    .step-box {
-        position: relative; /* YEH SABSE ZAROORI HAI */
-        background-color: #ffffff;
-        border-radius: 0.75rem; /* Rounded corners */
-        padding: 2rem;
-        margin-bottom: 1.5rem; /* Cards ke beech ka gap */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Halka shadow */
-        border: 1px solid #f0f0f0;
-        overflow: hidden; /* Taaki number card se bahar na jaaye */
-    }
-
-    /* Purana: .process-number */
-    .step-background-number {
-        position: absolute;
-        top: 0.5rem;
-        right: 1.5rem;
-        font-size: 2.5rem; /* Bahut bada font */
-        font-weight: 700;
-        color: #e6e4e4;  /* Bahut halka gray color */
-        line-height: 1;
-        z-index: 0; /* Text ke peeche rakhein */
-    }
-
-    /* Purana: .process-content */
-    .step-text-content {
-        position: relative;
-        z-index: 1; /* Number ke upar rakhein */
-    }
-
-    /* Purana: .process-content h5 */
-    .step-text-content h5 {
-        font-weight: 700;
-        color: #212529;
-        margin-bottom: 0.5rem;
-    }
-
-    /* Purana: .process-content p */
-    .step-text-content p {
-        color: #6c757d;
-        font-size: 0.95rem;
-        margin-bottom: 0;
-        line-height: 1.6;
-    }
-    .how-it-works-section {
-            padding: 4rem 0 !important;
-        }
-
-        /* Left side content (text and steps) */
-        .left-content {
-            padding-right: 3rem; /* Space between left content and images */
-        }
-
-        .left-content .tag-pill {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            /* background-color: #e9f9f7;  */
-            color: #27c4b0; /* Darker green-blue */
-            margin-bottom: 0.75rem;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .left-content .tag-pill::before {
-            content: '';
-            position: absolute;
-            left: 0.7rem;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 8px;
-            height: 8px;
-            background-color: #27c4b0; /* Dot color */
-            border-radius: 50%;
-        }
-
-        .left-content h2 {
-            font-size: 2.75rem;
-            font-weight: 700;
-            color: #212529;
-            margin-top: 0.75rem;
-            margin-bottom: 2.5rem;
-        }
-
-        /* Timeline step cards */
-        .timeline-step {
-            background-color: #f8f9fa; /* Inactive step background */
-            border-radius: 0.75rem;
-            padding: 1.35rem 1.5rem;
-            margin-right: 10px;
-            margin-bottom: 0.85rem; /* Space between steps */
-            display: flex; /* Number and text side-by-side */
-            align-items: center; /* Vertically center content */
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer; /* Indicates it's interactive */
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03); /* Subtle shadow for inactive */
-            border: 1px solid #f0f0f0; /* Subtle border */
-        }
-
-
-
-        /* Active step styling */
-        .timeline-step.active {
-            background-color: #11B8ED; /* Bright blue background */
-            color: #4f4e4e; /* White text */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* More prominent shadow */
-            border-color: #11B8ED;
-        }
-
-        .timeline-step .step-number {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-right: 1rem;
-            min-width: 25px; /* Ensures numbers align */
-            padding: 3px 10px;
-            text-align: center;
-            background-color: rgb(236, 236, 236);
-            border-radius: 4px;
-        }
-
-        .timeline-step .step-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0;
-            color: #212529; /* Default title color */
-        }
-
-        .timeline-step .step-description {
-            font-size: 0.9rem;
-            color: #6c757d; /* Default description color */
-            margin-bottom: 0;
-            line-height: 1.4;
-        }
-
-        /* Active step text colors override */
-        .timeline-step.active .step-title,
-        .timeline-step.active .step-description {
-            color: #ffffff; /* White text for active step */
-        }
-
-        /* Right side image collage */
-        .image-collage {
-            position: relative;
-            height: 500px; /* Fixed height for the collage container */
-            margin-top: 2rem; /* Mobile spacing */
-        }
-
-        .image-collage img {
-            position: absolute;
-            border-radius: 1rem;
-            object-fit: cover;
-            border: 4px solid #ffffff; /* White border around images */
-            transform-origin: center; /* For potential rotation */
-        }
-
-        .image-collage .img-main {
-            width: 70%;
-            height: 45%;
-            top: 0;
-            left: 0;
-            z-index: 2; /* Main image on top */
-        }
-        /* Responsive adjustments */
-        @media (max-width: 991.98px) {
-            .left-content {
-                padding-right: 0; /* No padding on mobile */
-            }
-            .left-content h2 {
-                font-size: 2rem;
-                margin-bottom: 2rem;
-            }
-            .timeline-step {
-                padding: 1rem 1.25rem;
-            }
-            .timeline-step .step-number {
-                font-size: 1rem;
-                margin-right: 0.75rem;
-                min-width: 20px;
-            }
-            .timeline-step .step-title {
-                font-size: 1rem;
-            }
-            .timeline-step .step-description {
-                font-size: 0.85rem;
-            }
-            .image-collage {
-                height: 400px; /* Smaller height for mobile collage */
-                margin-top: 3rem; /* More space on top */
-            }
-           
-          
-        }
-        @media (max-width: 500px) {
-          .image-collages img{
-            width: 100%;
-          }
-        }
-            .tag-pill {
-            display: inline-block;
-            color: #0B9D9A;
-            border: 1px solid #0ec5c2;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.25rem 0.75rem;
-            border-radius: 50rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
-        }
-
-        .tag-pill i {
-            font-size: 0.5rem;
-            margin-right: 0.25rem;
-        }
-
-        /* Cards */
-        .location-card {
-            background-color: #ffffff;
-            border: 1px solid #e5e7eb;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: 0.3s ease;
-            height: 100%;
-        }
-
-        .location-card-image {
-            width: 100%;
-            height: 300px;
-            padding: 20px;
-            object-fit: cover;
-        }
-
-        .arrow-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background-color: #0B9D9A;
-            color: white;
-            font-size: 1.25rem;
-            transition: 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        
-        /* ============================
-           RESPONSIVE FIXES
-        ============================ */
-
-        /* Tablet and below */
-        @media (max-width: 1200px) {
-            .location-card {
-                width: 100% !important;
-                margin-left: 0 !important;
-            }
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .location-card-image {
-                height: 180px;
-            }
-            .p-4 {
-                padding: 1rem !important;
-            }
-        }
-
-        /* Extra Small Devices */
-        @media (max-width: 576px) {
-            h5.h5 {
-                font-size: 1rem;
-            }
-            p.small {
-                font-size: 0.8rem;
-            }
-            .arrow-button {
-                width: 38px;
-                height: 38px;
-                font-size: 1rem;
-            }
-        }
-           /* Tag pill */
-      .tag-pil {
-        display: inline-block;
-        color: #0B9D9A;
-        border: 1px solid #0B9D9A;
-        font-size: 0.78rem;
-        font-weight: 600;
-        padding: 0.35rem 0.9rem;
-        border-radius: 50px;
-        text-transform: uppercase;
-        margin-bottom: 0.8rem;
-        position: relative;
-        padding-left: 1.6rem;
-      }
-
-      .tag-pil::before {
-        content: "";
-        position: absolute;
-        left: 0.7rem;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 7px;
-        height: 7px;
-        background-color: #0B9D9A;
-        border-radius: 50%;
-      }
-
-      /* Left Image (big) */
-      .main-school-image {
-        width: 100%;
-        height: 400px;
-        object-fit: cover;
-        border-radius: 12px;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-      }
-
-      .school-card {
-        background-color: #f2f4f5;
-        border-radius: 12px;
-        padding: 1.4rem;
-        min-height: 150px;
-        border: 1px solid #e9ecef;
-        display: flex;
-        align-items: flex-start;
-        gap: 1rem;
-        transition: all 0.3s ease;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .school-icon {
-        width: 42px;
-        height: 42px;
-        background-color: #00a8e8;
-        color: #fff;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-      }
-
-      .school-title {
-        font-weight: 700;
-        font-size: 1rem;
-        margin-bottom: 4px;
-      }
-
-      .school-desc {
-        font-size: 1.2rem;
-        color: #6c757d;
-        margin: 0;
-      }
- /* Top header tag */
-      .tag-pi {
-        display: inline-block;
-        background-color: #e9ecef; /* Halka gray background */
-        color: #495057; /* Dark gray text */
-        font-size: 0.75rem;
-        font-weight: 600;
-        padding: 0.35rem 0.75rem;
-        border-radius: 50rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin-bottom: 1rem;
-        position: relative;
-        padding-left: 1.5rem;
-      }
-
-      .tag-pi::before {
-        content: "•";
-        position: absolute;
-        left: 0.6rem;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 1rem;
-        line-height: 1;
-      }
-
-      /* Sabse important: Location Card ka style */
-      .location-card {
-        position: relative;
-        border-radius: 1rem; /* 16px rounded corners */
-        overflow: hidden; /* Image ko corners ke andar rakhega */
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        text-decoration: none;
-        display: block;
-      }
-
-      .location-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-      }
-
-      /* Card ki image */
-      .location-card-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-      }
-
-      .location-card:hover .location-card-img {
-        transform: scale(1.03); /* Hover par halka zoom */
-      }
-
-      /* Image ke upar ka content (Gradient + Text) */
-      .card-content-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        padding: 1.5rem;
-        /* Yeh gradient text ko readable banata hai */
-        background: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.85) 0%,
-          rgba(0, 0, 0, 0.5) 50%,
-          transparent 100%
-        );
-        color: #ffffff;
-      }
-
-      .location-card h5 {
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-      }
-
-      .location-card p {
-        font-size: 0.9rem;
-        opacity: 0.9; /* Text ko thoda transparent banata hai */
-        margin-bottom: 1rem;
-      }
-
-      /* "Explore Now" Link */
-      .explore-link {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: #ffffff;
-        background: linear-gradient(
-          90deg,
-          #0b9d9a,
-          #0fcfcf
-        ); /* subtle gradient like image */
-        border-radius: 50px; /* pill shape */
-        font-weight: 600;
-        font-size: 14px;
-        padding: 8px 10px 8px 20px; /* better height/width */
-        text-decoration: none;
-        gap: 8px; /* space between text and arrow */
-        transition: background 0.3s ease, transform 0.2s ease;
-      }
-
-      /* Gol arrow button */
-      .arrow-circle {
-        width: 35px;
-        height: 35px;
-        background: white; /* Icon ka color */
-        color: #0B9D9A;
-        border-radius: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 0.75rem;
-        font-size: 1rem;
-        transition: transform 0.3s ease;
-      }
-
-      .explore-link:hover .arrow-circle {
-        transform: translateX(4px); /* Arrow ko right move karega */
-      }
-
-      /* --- Card Height Management --- */
-
-      /* Badi (left) card ki height */
-      .card-large {
-        height: 524px; /* 250px + 250px + 24px gap */
-      }
-
-      /* Chhoti (right) cards ki height */
-      .card-small {
-        height: 250px;
-      }
-
-      /* --- Responsive (Mobile) --- */
-      @media (max-width: 991.98px) {
-        /* Mobile par, sabhi cards ki height ek jaisi hogi */
-        .card-large,
-        .card-small {
-          height: 350px;
-        }
-      }
-      @media (min-width: 768px) and (max-width: 992px) {
-        .location-card.card-large {
-          /* Aap yahan apni pasand ki height set kar sakte hain */
-          height: 730px;
-
-          /* Ya phir aap 'min-height' ka istemal kar sakte hain 
-     taki content zyada ho to card automatically bada ho sake.
-    */
-          /* min-height: 450px; */
-        }
-      }
-        .dot {
-            display: inline-block;
-            width: 0.5rem;  /* Equivalent to w-2 */
-            height: 0.5rem; /* Equivalent to h-2 */
-            background-color: #0B9D9A; /* Bootstrap 'info' color */
-            border-radius: 50%; /* Equivalent to rounded-full */
-            margin-right: 0.375rem; /* Equivalent to mr-1.5 */
-            vertical-align: middle;
-        }
-
-        /* Custom letter-spacing (recreated from Tailwind 'tracking-wider') */
-        .letter-spacing-wider {
-            letter-spacing: 0.05em;
-        }
-
-        /* Use Bootstrap's rounded-4 for a large radius */
-        .rounded-4 {
-             border-radius: 0.5rem !important; /* Tailwind's rounded-xl was 0.75rem, this is a close Bootstrap equivalent */
-        }
-   /* Custom color from the image */
-        .text-teal {
-            color: #00A9A5; 
-        }
-
-        .bg-teal {
-            background-color: #00A9A5;
-        }
-
-        .bg-teal:hover {
-            background-color: #008784; /* A slightly darker shade for hover */
-        }
-
-       
-        /* Styling for the circular arrow button */
-        .btn-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0; /* Reset padding */
-            font-size: 1.2rem;
-            line-height: 1;
-        }
-        
-        /* Card styling to match the image */
-        .card {
-            border: none; /* Remove default border */
-        }
-
-             /* Card styling for image overlay */
-        .card-image-overlay {
-            position: relative;
-            overflow: hidden; /* Ensures image doesn't spill out */
-            border-radius: 1rem; /* Rounded corners for the whole card */
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Softer shadow */
-        }
-
-        .card-image-overlay img {
-            width: 100%;
-            height: 350px; /* Fixed height for images, adjust as needed */
-            object-fit: cover; /* Ensures image covers the area without distortion */
-            display: block;
-            border-radius: 1rem; /* Rounded corners for the image itself */
-            transition: transform 0.3s ease; /* Smooth hover effect */
-        }
-
-        .card-image-overlay:hover img {
-            transform: scale(1.05); /* Slightly zoom on hover */
-        }
-
-        .card-image-overlay .card-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%); /* Gradient overlay */
-            color: white;
-            border-bottom-left-radius: 1rem;
-            border-bottom-right-radius: 1rem;
-        }
-
-        .card-image-overlay .card-title {
-            font-size: 1.25rem; /* Equivalent to h5 */
-            font-weight: 600; /* fw-semibold */
-            margin-bottom: 0;
-        }
-         .text-bright-blue {
-            color: #00B2F2; 
-        }
-        .bg-bright-blue {
-            background-color: #00B2F2;
-        }
-        /* Lighter blue for quote icon */
-        .text-quote-blue {
-            color: #40C4FF;
-        }
-        /* Green for stars */
-        .text-green-stars {
-            color: #28a745; /* Bootstrap 'success' color */
-        }
-
-        /* --- Header --- */
-        .dot {
-            display: inline-block;
-            width: 0.5rem;
-            height: 0.5rem;
-            background-color: #00B2F2;
-            border-radius: 50%;
-            margin-right: 0.375rem;
-            vertical-align: middle;
-        }
-        
-        .star-rating i {
-            font-size: 1.25rem;
-        }
-
-        /* --- Image Frame (Left Column) --- */
-        .image-frame-wrapper {
-            position: relative;
-            /* Add padding so the blocks have space and aren't cut off */
-            padding: 4rem 1rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 400px;
-        }
-
-        /* The image itself */
-        .image-frame-wrapper img {
-            position: relative; /* To ensure it's on top of the blocks */
-            z-index: 2;
-            border-radius: 1.5rem; /* More rounded corners */
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* The decorative blue blocks */
-        .frame-block {
-            position: absolute;
-            z-index: 1; /* Behind the image */
-            width: 40%;
-            height: 100px;
-            background-color: #00B2F2;
-            border-radius: 1.5rem;
-            /* Center the block horizontally */
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .frame-block-top {
-            top: 0;
-            /* Removed right: 0 */
-            /* Removed width, height, and border-radius properties, 
-               as they are now inherited from .frame-block or not needed */
-        }
-
-        .frame-block-bottom {
-            bottom: 0;
-            /* Removed left: 0 */
-            /* Removed width and height as they are inherited */
-        }
-
-        /* --- Testimonial (Right Column) --- */
-        .testimonial-content {
-            /* Center vertically */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100%;
-        }
-
-        .quote-icon {
-            font-size: 3rem;
-            font-weight: bold;
-            line-height: 1;
-        }
-
-        /* Navigation buttons */
-        .btn-nav {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            font-size: 1rem;
-            line-height: 1;
-            border: 1px solid #ced4da; /* Bootstrap 'border' color */
-            color: #6c757d; /* Bootstrap 'secondary' text color */
-            background-color: #fff;
-            transition: all 0.2s ease;
-        }
-        .btn-nav:hover {
-            background-color: #f8f9fa;
-            color: #212529;
-        }
-           .text-teal-custom {
-            color: #00A9A5;
-        }
-        .bg-teal-custom {
-            background-color: #00A9A5;
-        }
-
-        /* The background grid pattern */
-        .bg-journey-grid {
-            background-color: #00A9A5;
-            /* Creates a faint 1px grid */
-            background-image: 
-                linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
-            background-size: 20px 20px; /* Size of the grid squares */
-            overflow: hidden; /* To handle image overflow if any */
-        }
-
-        /* Custom white button style */
-        .btn-white-cta {
-            background-color: #ffffff;
-            color: #00A9A5; /* Teal text */
-            font-weight: 600;
-            padding: 0.6rem 0.6rem 0.6rem 1.5rem; /* Padding adjusted for circle */
-            border-radius: 50rem; /* pill shape */
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .btn-white-cta:hover {
-            background-color: #f0f0f0;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-            transform: translateY(-2px);
-        }
-
-        /* The arrow circle inside the button */
-        .btn-arrow-circle {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            background-color: #00A9A5; /* Teal background */
-            color: #ffffff; /* White arrow */
-            font-size: 1.1rem;
-            margin-left: 1rem;
-        }
-        
-        /* Ensure image column has no padding on the right */
-        /* On mobile, add padding back */
-        @media (min-width: 768px) {
-            .col-img-no-padding {
-                padding-right: 0;
-            }
-            .journey-img {
-                /* Make image slightly larger than its column to "bleed" */
-                width: 120%; 
-                max-width: none;
-            }
-        }
-           .footer-main {
-            background-color: #F5F5F5; /* Light grey background */
-            color: #6c757d; /* Muted text color */
-        }
-
-        /* --- Image Background Column --- */
-        .footer-img-bg {
-            /* background-image: url('/foot1.png'); */
-            background-color: #e9ecef; /* Fallback color if image fails */
-            background-size: cover;
-            background-position: center;
-            min-height: 400px; /* Min height for desktop */
-            
-        }
-        
-        /* On mobile, we hide the image column */
-        @media (max-width: 991.98px) {
-            .footer-img-bg {
-                display: none;
-            }
-        }
-
-        /* --- Content Styling --- */
-        .footer-content {
-            padding: 3rem;
-        }
-
-        .footer-heading {
-            font-weight: 600;
-            color: #212529; /* Darker text */
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links .list-unstyled li a {
-            color: #6c757d;
-            text-decoration: none;
-            margin-bottom: 0.5rem;
-            display: inline-block;
-            transition: color 0.2s;
-        }
-        .footer-links .list-unstyled li a:hover {
-            color: #212529;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 0.75rem;
-        }
-        .contact-item i {
-            font-size: 1.1rem;
-            color: #212529;
-            margin-right: 0.75rem;
-            width: 20px;
-        }
-
-        /* --- Social & WhatsApp Buttons --- */
-        .btn-social {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            font-size: 0.9rem;
-            color: #fff;
-            background-color: #00B2F2; /* Bright blue */
-            border: none;
-            transition: opacity 0.2s;
-        }
-        .btn-social:hover {
-            opacity: 0.8;
-        }
-
-        .btn-teal-cta {
-            background-color: #0B9D9A; /* Teal color */
-            color: #ffffff;
-            font-weight: 600;
-            padding: 0.6rem 0.6rem 0.6rem 1.5rem;
-            border-radius: 50rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            width: 100%;
-            max-width: 260px;
-        }
-        .btn-teal-cta:hover {
-            background-color: #008784;
-            color: #ffffff;
-        }
-
-        .btn-arrow-circle-white {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            background-color: #ffffff; /* White background */
-            color: #00A9A5; /* Teal arrow */
-            font-size: 1.1rem;
-            margin-left: 1rem;
-        }
-
-        /* --- Copyright Bar --- */
-        .footer-copyright {
-            background-color: #212529; /* Dark background */
-            color: rgba(255, 255, 255, 0.5); /* Light, muted text */
-        }
-        .bg-light-custom {
-    background-color: #F5F5F5 !important;
-}
-.swiper-pagination {
-    margin-top: 20px !important; /* Increase the space */
-}
-@media (max-width: 576px) {
-  .explore-link {
-    display: flex;
-    width: 100%;
-    padding: 8px 20px;      /* adjust height/spacing */
-    align-items: center;
-    position: relative; 
-    padding: 12px 0px;     /* for arrow positioning */
-  }
-
-  .explore-link span:first-child {
-    flex: 1;
-    text-align: center;      /* text center */
-    font-size: large;
-  }
-
-  .explore-link .arrow-circle {
-    position: absolute;
-    right: 15px;             /* arrow on the right */
-    top: 15%;
-    /* transform: translateY(-50%); */
-  }
-}
-
-@media (min-width: 900px) {
-  .footer-wrapper {
-    position: relative; /* parent ko relative banaye */
-}
-
-.footer-logo {
-    position: absolute;
-    top: 35px;          /* thoda upar uthaye */
-    background: #F5F5F5;
-    padding: 12px;
-    left: 42%;           /* horizontally center */
-    transform: translateX(-50%); /* center align */
-    z-index: 10;         /* upar layer me dikhaye */
-    height: 65px;        /* logo size */
-    border-radius: 15px;
-}
-    .footer-content {
-            padding: 3rem;
-            margin-top: 100px;
-        }
-}
-
-@media (max-width: 500px) {
-  .footer-wrapper {
-    position: relative; /* parent ko relative banaye */
-}
-
-.footer-logo {
-   display: none;
-}
-}
-@media (min-width: 700px) {
-  .w{
-    width: 595px;
-  }
-}
-.select-no-arrow {
-    -webkit-appearance: none !important;
-    -moz-appearance: none !important;
-    appearance: none !important;
-    background-image: none !important;
-}
-
-    </style>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-md py-3 navbar-desktop d-none d-lg-block">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img
-            src="/logo.png"
-            alt="APAC Relocation Logo"
-            style="height: 40px"
-          />
-        </a>
-        <div class="collapse navbar-collapse" id="navbarNavDesktop">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">International Moving</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Global Relocation</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Settling in India</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact Us</a>
-            </li>
-          </ul>
-          <a href="#" class="btn btn-brand d-none d-lg-block">Track Your Shipment</a>
-        </div>
-      </div>
-    </nav>
-
-     <nav class="navbar navbar-expand-md py-3 navbar-desktop d-none d-md-block d-lg-none">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img
-            src="/logo.png"
-            alt="APAC Relocation Logo"
-            style="height: 40px"
-          />
-        </a>
-        <div class="collapse navbar-collapse" id="navbarNavDesktop">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Moving Sevice</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact Us</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <nav class="navbar navbar-mobile d-md-none">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAC Relocation</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md py-3 navbar-desktop d-none d-lg-block">
+    <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="/logo.png" alt="APAC Relocation Logo" />
+        <img src="assets/images/logo.png" alt="APAC Relocation Logo" style="height: 40px" />
       </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNavMobile"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavMobile">
-        <ul class="navbar-nav mt-3">
+      <div class="collapse navbar-collapse" id="navbarNavDesktop">
+        <ul class="navbar-nav mx-auto">
           <li class="nav-item">
             <a class="nav-link active" href="#">Home</a>
           </li>
@@ -1843,1692 +38,1689 @@
             <a class="nav-link" href="#">Contact Us</a>
           </li>
         </ul>
+        <a href="#" class="btn btn-brand d-none d-lg-block">Track Your Shipment</a>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <section class="hero-section-desktop px-5 d-none d-lg-block">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-5 hero-content">
-            <span class="pill-tag mb-3"
-              ><i class="fa-solid fa-circle fa-2xs" style="color: #00a79d"></i>
-              INDIA SKYLINE</span
-            >
-            <h2 class="hero-heading mb-3">
-              Your Hassle <span class="highlight1">Free Relocation</span> to
-              <span class="highlight2">India Starts</span> Here
-            </h2>
-            <p class="text-muted col-lg-10">
-              We guarantee hassle-free door-to-door relocation to India. Get
-              Real Time Moving Quote to India.
-            </p>
-          </div>
+  <nav class="navbar navbar-expand-md py-3 navbar-desktop d-none d-md-block d-lg-none">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="assets/images/logo.png" alt="APAC Relocation Logo" style="height: 40px" />
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNavDesktop">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Moving Sevice</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="navbar navbar-mobile d-md-none">
+    <a class="navbar-brand" href="#">
+      <img src="assets/images/logo.png" alt="APAC Relocation Logo" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavMobile">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavMobile">
+      <ul class="navbar-nav mt-3">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">International Moving</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Global Relocation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Settling in India</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero-section-desktop px-5 d-none d-lg-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 hero-content">
+          <span class="pill-tag mb-3"><i class="fa-solid fa-circle fa-2xs" style="color: #00a79d"></i>
+            INDIA SKYLINE</span>
+          <h2 class="hero-heading mb-3">
+            Your Hassle <span class="highlight1">Free Relocation</span> to
+            <span class="highlight2">India Starts</span> Here
+          </h2>
+          <p class="text-muted col-lg-10">
+            We guarantee hassle-free door-to-door relocation to India. Get
+            Real Time Moving Quote to India.
+          </p>
         </div>
       </div>
-      <div class="hero-image-col"></div>
-    </section>
+    </div>
+    <div class="hero-image-col"></div>
+  </section>
 
-    <section class="hero-section-desktop px-5 d-none d-md-block d-lg-none">
-      <div class="container">
-        <div class="row" style="padding: 50px 0px 30px 0px;">
-          <div class="col-lg-5 hero-content">
-            <span class="pill-tag mb-3"
-              ><i class="fa-solid fa-circle fa-2xs" style="color: #00a79d"></i>
-              INDIA SKYLINE</span
-            >
-            <h2 class="hero-heading mb-3" style="font-size: 1.7rem;">
-              Your Hassle <span class="highlight1">Free Relocation</span> to
-              <span class="highlight2">India Starts</span> Here
-            </h2>
-            <p class="text-muted col-lg-10" style="font-size: 16px;">
-              We guarantee hassle-free door-to-door relocation to India. Get
-              Real Time Moving Quote to India.
-            </p>
-          </div>
+  <section class="hero-section-desktop px-5 d-none d-md-block d-lg-none">
+    <div class="container">
+      <div class="row" style="padding: 50px 0px 30px 0px;">
+        <div class="col-lg-5 hero-content">
+          <span class="pill-tag mb-3"><i class="fa-solid fa-circle fa-2xs" style="color: #00a79d"></i>
+            INDIA SKYLINE</span>
+          <h2 class="hero-heading mb-3" style="font-size: 1.7rem;">
+            Your Hassle <span class="highlight1">Free Relocation</span> to
+            <span class="highlight2">India Starts</span> Here
+          </h2>
+          <p class="text-muted col-lg-10" style="font-size: 16px;">
+            We guarantee hassle-free door-to-door relocation to India. Get
+            Real Time Moving Quote to India.
+          </p>
         </div>
       </div>
-      <div class="hero-image-col"></div>
-    </section>
+    </div>
+    <div class="hero-image-col"></div>
+  </section>
 
-    <section class="hero-section-mobile d-md-none">
-      <div class="hero-content-mobile">
-        <span class="pill-tag-mobile"
-          ><i class="fa-solid fa-circle fa-2xs" style="margin-right: 5px"></i>
-          INDIA SKYLINE</span
-        >
-        <h2 class="hero-heading-mobile mb-3">
-          Your Hassle Free Relocation to India Starts Here
-        </h2>
-        <p class="hero-subheading-mobile">
-          Your trusted international mover to India. We handle every detail from
-          expert packing to on-time delivery at your new home.
+  <section class="hero-section-mobile d-md-none">
+    <div class="hero-content-mobile">
+      <span class="pill-tag-mobile"><i class="fa-solid fa-circle fa-2xs" style="margin-right: 5px"></i>
+        INDIA SKYLINE</span>
+      <h2 class="hero-heading-mobile mb-3">
+        Your Hassle Free Relocation to India Starts Here
+      </h2>
+      <p class="hero-subheading-mobile">
+        Your trusted international mover to India. We handle every detail from
+        expert packing to on-time delivery at your new home.
         </im_p>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="form-section px-md-5">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-12">
-            <div class="form-card">
-              <h4 class="form-heading-desktop d-none d-md-block">
-                Get your international moving quote, Smaller shipment
-                <strong>can</strong> book instantly
-              </h4>
-              <h4 class="form-heading-mobile d-md-none">
-                Get a personalized quote below.
-              </h4>
+  <section class="form-section px-md-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+          <div class="form-card">
+            <h4 class="form-heading-desktop d-none d-md-block">
+              Get your international moving quote, Smaller shipment
+              <strong>can</strong> book instantly
+            </h4>
+            <h4 class="form-heading-mobile d-md-none">
+              Get a personalized quote below.
+            </h4>
 
-              <form enctype="multipart/form-data">
-                <div class="row g-3 g-lg-4">
-                  
-                  <div class="col-12">
-                    <label for="movingFrom" class="form-label fw-bold"
-                      >I am moving from</label
-                    >
-                    <div class="input-with-icon">
-                      <i class="fa-solid fa-map-marker-alt input-icon"></i>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="movingFrom"
-                        placeholder="Enter your address"
-                      />
+            <form enctype="multipart/form-data">
+              <div class="row g-3 g-lg-4">
+
+                <div class="col-12">
+                  <label for="movingFrom" class="form-label fw-bold">I am moving from</label>
+                  <div class="input-with-icon">
+                    <i class="fa-solid fa-map-marker-alt input-icon"></i>
+                    <input type="text" class="form-control" id="movingFrom" placeholder="Enter your address" />
+                  </div>
+                </div>
+
+                <div class="col-12 position-relative dotted-line-target">
+                  <label for="movingTo" class="form-label fw-bold">I am moving to</label>
+                  <div class="input-with-icon">
+                    <i class="fa-solid fa-map-marker-alt input-icon"></i>
+                    <input type="text" class="form-control" id="movingTo" placeholder="Enter the address or city." />
+                  </div>
+                </div>
+
+                <div class="col-6 col-md-4">
+                  <label for="name" class="form-label fw-bold">Name</label>
+                  <div class="input-with-icon">
+                    <i class="fa-solid fa-user input-icon"></i>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name" />
+                  </div>
+                </div>
+
+                <div class="col-6 col-md-4">
+                  <label for="email" class="form-label fw-bold">Email</label>
+                  <div class="input-with-icon">
+                    <i class="fa-solid fa-envelope input-icon"></i>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email" />
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                  <label for="phone" class="form-label fw-bold">Phone Number</label>
+                  <div class="input-with-icon">
+                    <i class="fa-solid fa-phone input-icon"></i>
+                    <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" />
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label for="fullHousehold" class="form-label fw-bold">Why are You Moving</label>
+                  <div class="input-with-icon">
+                    <i class="fa-solid fa-house input-icon"></i>
+                    <select class="form-select" id="fullHousehold">
+                      <option selected value="">Select moving type</option>
+                      <option value="full_household">Full Household</option>
+                      <option value="partial_household">Partial Household</option>
+                      <option value="partial_household">Few Furnitures</option>
+                      <option value="few_boxes">Few Boxes</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label for="movingDate" class="form-label fw-bold">Moving Date</label>
+                  <div class="input-with-icon">
+                    <i class="fa-solid fa-calendar-alt input-icon"></i>
+                    <input type="date" class="form-control" id="movingDate">
+                  </div>
+                </div>
+
+                <div id="designContainer" style="display: none; margin-top: 20px;">
+                  <div class="row g-4 rounded justify-content-center">
+                    <div class="col-12 col-md-6">
+                      <label class="form-label fw-bold">Uploading Image or Vidio</label>
+
+                      <input type="file" id="fileUpload" accept="image/*, video/*" class="d-none"
+                        onchange="showFileName()">
+
+                      <label for="fileUpload"
+                        class="form-control d-flex align-items-center justify-content-start text-muted"
+                        style="cursor: pointer; height: auto; padding: 14px; ">
+                        <i class="fa-solid fa-cloud-arrow-up me-2"></i> <span id="uploadText">Calculate Shipping Volume
+                          by Uploading Images or Video</span>
+                      </label>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <label for="movingDate" class="form-label fw-bold">Shiping Volume</label>
+                      <div class="input-with-icon">
+                        <i class="fa-solid fa-calendar-alt input-icon"></i>
+                        <input type="text" class="form-control" placeholder="Enter Shiping Volume (CBM)">
+                      </div>
                     </div>
                   </div>
-
-                  <div class="col-12 position-relative dotted-line-target">
-                    <label for="movingTo" class="form-label fw-bold"
-                      >I am moving to</label
-                    >
-                    <div class="input-with-icon">
-                      <i class="fa-solid fa-map-marker-alt input-icon"></i>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="movingTo"
-                        placeholder="Enter the address or city."
-                      />
-                    </div>
+                  <div class="form-check p-3 d-flex" style="margin-left: 10px;">
+                    <input class="form-check-input me-2" type="checkbox" id="preMove">
+                    <label class="form-check-label fw-semibold" for="preMove">
+                      Arrange Pre-Move Survey
+                    </label>
                   </div>
+                  <div id="surveyDetails" class=" mt-2" style="display: none; ">
+                    <div class="row g-4">
 
-                  <div class="col-6 col-md-4">
-                    <label for="name" class="form-label fw-bold">Name</label>
-                    <div class="input-with-icon">
-                      <i class="fa-solid fa-user input-icon"></i>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="name"
-                        placeholder="Enter your name"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="col-6 col-md-4">
-                    <label for="email" class="form-label fw-bold">Email</label>
-                    <div class="input-with-icon">
-                      <i class="fa-solid fa-envelope input-icon"></i>
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="email"
-                        placeholder="Enter your email"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="col-12 col-md-4">
-                    <label for="phone" class="form-label fw-bold"
-                      >Phone Number</label
-                    >
-                    <div class="input-with-icon">
-                      <i class="fa-solid fa-phone input-icon"></i>
-                      <input
-                        type="tel"
-                        class="form-control"
-                        id="phone"
-                        placeholder="Enter your phone number"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="col-12 col-md-6">
-                    <label for="fullHousehold" class="form-label fw-bold"
-                      >Why are You Moving</label
-                    >
-                    <div class="input-with-icon">
-                      <i class="fa-solid fa-house input-icon"></i>
-                      <select class="form-select" id="fullHousehold">
-                          <option selected value="">Select moving type</option>
-                          <option value="full_household">Full Household</option>
-                          <option value="partial_household">Partial Household</option>
-                          <option value="partial_household">Few Furnitures</option>
-                          <option value="few_boxes">Few Boxes</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div class="col-12 col-md-6">
-                        <label for="movingDate" class="form-label fw-bold">Moving Date</label>
+                      <div class="col-md-6">
+                        <label for="surveyDate" class="form-label fw-semibold">Pre-Move Survey</label>
                         <div class="input-with-icon">
-                            <i class="fa-solid fa-calendar-alt input-icon"></i>
-                            <input type="date" class="form-control" id="movingDate">
+                          <i class="fa-solid fa-calendar-alt input-icon"></i>
+                          <input type="text" class="form-control" id="movingDate"
+                            placeholder="Select Pre-Move Survey Date" onfocus="(this.type='date')"
+                            onblur="if(!this.value) this.type='text'">
                         </div>
-                  </div>
+                      </div>
 
-                  <div id="designContainer"  style="display: none; margin-top: 20px;">
-                        <div class="row g-4 rounded justify-content-center">
-                             <div class="col-12 col-md-6">
-                                <label class="form-label fw-bold">Uploading Image or Vidio</label>
-                                
-                                <input type="file" id="fileUpload" accept="image/*, video/*" class="d-none" onchange="showFileName()">
+                      <div class="col-md-6">
+                        <label for="surveyTime" class="form-label">Time slot</label>
 
-                                <label for="fileUpload" class="form-control d-flex align-items-center justify-content-start text-muted" style="cursor: pointer; height: auto; padding: 14px; ">
-                                    <i class="fa-solid fa-cloud-arrow-up me-2"></i> <span id="uploadText">Calculate Shipping Volume by Uploading Images or Video</span>
-                                </label>
-                            </div>
+                        <div class="input-with-icon">
+                          <i class="fa-solid fa-clock input-icon"></i>
 
-                              <div class="col-12 col-md-6">
-                                  <label for="movingDate" class="form-label fw-bold">Shiping Volume</label>
-                                  <div class="input-with-icon">
-                                      <i class="fa-solid fa-calendar-alt input-icon"></i>
-                                      <input type="text" class="form-control" placeholder="Enter Shiping Volume (CBM)" >
-                                  </div>
-                              </div>
+                          <input type="text" class="form-control" id="surveyTime" placeholder="Select Time Slot"
+                            onfocus="(this.type='time')" onblur="if(!this.value) this.type='text'">
                         </div>
-                    <div class="form-check p-3 d-flex" style="margin-left: 10px;">
-                        <input class="form-check-input me-2" type="checkbox" id="preMove">
-                        <label class="form-check-label fw-semibold" for="preMove">
-                            Arrange Pre-Move Survey
-                        </label>
-                    </div>
-                    <div id="surveyDetails" class=" mt-2" style="display: none; ">
-                        <div class="row g-4">
-                            
-                            <div class="col-md-6">
-                                <label for="surveyDate" class="form-label fw-semibold">Pre-Move Survey</label>
-                                <div class="input-with-icon">
-                            <i class="fa-solid fa-calendar-alt input-icon"></i>
-                            <input 
-                                type="text" 
-                                class="form-control" 
-                                id="movingDate" 
-                                placeholder="Select Pre-Move Survey Date"
-                                onfocus="(this.type='date')"
-                                onblur="if(!this.value) this.type='text'"
-                            >
-                            </div>
-                            </div>
+                      </div>
 
-                          <div class="col-md-6">
-                              <label for="surveyTime" class="form-label">Time slot</label>
-                              
-                              <div class="input-with-icon">
-                                  <i class="fa-solid fa-clock input-icon"></i>
-                                  
-                                  <input 
-                                      type="text" 
-                                      class="form-control" 
-                                      id="surveyTime"
-                                      placeholder="Select Time Slot" 
-                                      onfocus="(this.type='time')" 
-                                      onblur="if(!this.value) this.type='text'"
-                                  >
-                              </div>
-                          </div>
-
-                        </div>
                     </div>
                   </div>
+                </div>
 
-                  <div id="designContainer" style="display: none; margin-top: 20px;">
-                      <div class="alert alert-info">Full Household Section Visible</div>
-                  </div>
+                <div id="designContainer" style="display: none; margin-top: 20px;">
+                  <div class="alert alert-info">Full Household Section Visible</div>
+                </div>
 
-                  <div id="partialContainer" style="display: none; margin-top: 20px;">
-                    <div class="row g-3 rounded align-items-center justify-content-center">
-                        <div class="col-12 w">
-                            <label class="form-label fw-bold">Uploading Image or Video</label>
-                            
-                            <input type="file" id="fileUpload" accept="image/*, video/*" class="d-none" onchange="showFileName()">
+                <div id="partialContainer" style="display: none; margin-top: 20px;">
+                  <div class="row g-3 rounded align-items-center justify-content-center">
+                    <div class="col-12 w">
+                      <label class="form-label fw-bold">Uploading Image or Video</label>
 
-                            <label for="fileUpload" class="form-control d-flex align-items-center justify-content-start text-muted" style="cursor: pointer; height: auto; padding: 16px;">
-                                <i class="fa-solid fa-cloud-arrow-up"></i> 
-                                <span id="uploadText" style="font-size: 14px; padding-left: 7px;">Upload Media</span>
-                            </label>
-                        </div>
+                      <input type="file" id="fileUpload" accept="image/*, video/*" class="d-none"
+                        onchange="showFileName()">
 
-                        <div class="col-12 col-md-auto pt-4">
-                            <span class="">OR</span>
-                        </div>
-
-                        <div class="col-12 w">
-                            <label for="shippingVolume" class="form-label fw-bold">Shipping Volume</label>
-                            <div class="input-with-icon">
-                                <i class="fa-solid fa-box-open input-icon"></i>
-                                <input type="text" class="form-control" placeholder="Enter Volume (CBM)" id="shippingVolume">
-                            </div>
-                        </div>
+                      <label for="fileUpload"
+                        class="form-control d-flex align-items-center justify-content-start text-muted"
+                        style="cursor: pointer; height: auto; padding: 16px;">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <span id="uploadText" style="font-size: 14px; padding-left: 7px;">Upload Media</span>
+                      </label>
                     </div>
-                     <div class="col-12 mt-4">
-                    <label for="fullHousehold" class="form-label fw-bold"
-                      >List of the items</label
-                    >
+
+                    <div class="col-12 col-md-auto pt-4">
+                      <span class="">OR</span>
+                    </div>
+
+                    <div class="col-12 w">
+                      <label for="shippingVolume" class="form-label fw-bold">Shipping Volume</label>
+                      <div class="input-with-icon">
+                        <i class="fa-solid fa-box-open input-icon"></i>
+                        <input type="text" class="form-control" placeholder="Enter Volume (CBM)" id="shippingVolume">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 mt-4">
+                    <label for="fullHousehold" class="form-label fw-bold">List of the items</label>
                     <div class="input-with-icon">
                       <i class="fa-solid fa-house input-icon"></i>
                       <select class="form-select select-no-arrow">
-                          <option selected >List down all the items</option>
-                          <option>List 1</option>
-                          <option>List 2</option>
-                          <option>List 3</option>
-                          <option>List 4 </option>
+                        <option selected>List down all the items</option>
+                        <option>List 1</option>
+                        <option>List 2</option>
+                        <option>List 3</option>
+                        <option>List 4 </option>
                       </select>
                     </div>
                   </div>
 
-                  </div>
+                </div>
 
-                  <div id="fewBoxesContainer" style="display: none; margin-top: 20px;">
-          
-                      <div class="row g-4 mb-3">
-                          
-                          <div class="col-12 col-md-4">
-                              <label class="form-label fw-bold">Size of the box</label>
-                              <div class="input-with-icon">
-                                  <i class="fa-solid fa-box input-icon"></i> 
-                                  <select class="form-select">
-                                      <option selected>Select Size </option>
-                                      <option>Small (50 cms X 50 cms X 50 cms)</option>
-                                      <option>Medium (150 cms X 150 cms X 150 cms)</option>
-                                      <option>Large (300 cms X 300 cms X 300 cms)</option>
-                                  </select>
-                              </div>
-                          </div>
+                <div id="fewBoxesContainer" style="display: none; margin-top: 20px;">
 
-                          <div class="col-12 col-md-4">
-                              <label class="form-label fw-bold">Number of boxes</label>
-                              <div class="input-with-icon">
-                                  <i class="fa-solid fa-layer-group input-icon"></i>
-                                  <input type="number" class="form-control" placeholder="Enter the number of boxes">
-                              </div>
-                          </div>
+                  <div class="row g-4 mb-3">
 
-                          <div class="col-12 col-md-4">
-                              <label class="form-label fw-bold">Weight (per box)</label>
-                              <div class="input-with-icon">
-                                  <i class="fa-solid fa-weight-hanging input-icon"></i>
-                                  <input type="number" class="form-control" placeholder="Enter the weight of each box (kg)">
-                              </div>
-                          </div>
+                    <div class="col-12 col-md-4">
+                      <label class="form-label fw-bold">Size of the box</label>
+                      <div class="input-with-icon">
+                        <i class="fa-solid fa-box input-icon"></i>
+                        <select class="form-select">
+                          <option selected>Select Size </option>
+                          <option>Small (50 cms X 50 cms X 50 cms)</option>
+                          <option>Medium (150 cms X 150 cms X 150 cms)</option>
+                          <option>Large (300 cms X 300 cms X 300 cms)</option>
+                        </select>
                       </div>
+                    </div>
 
-                      <div class="row g-4">
-                          
-                          <div class="col-12 col-md-6">
-                              <label class="form-label fw-bold">List of items</label>
-                              <div class="input-with-icon">
-                                  <i class="fa-solid fa-list-check input-icon"></i> 
-                                  <input type="text" class="form-control" placeholder="List down all items">
-                              </div>
-                          </div>
-
-                          <div class="col-12 col-md-6">
-                              <label class="form-label fw-bold">Transport mode</label>
-                              <div class="input-with-icon">
-                                  <i class="fa-solid fa-truck-fast input-icon"></i> 
-                                  <select class="form-select">
-                                      <option selected>Select Transport Mode</option>
-                                      <option>By Air</option>
-                                      <option>By Sea</option>
-                                      <option>By Road</option>
-                                  </select>
-                              </div>
-                          </div>
-
+                    <div class="col-12 col-md-4">
+                      <label class="form-label fw-bold">Number of boxes</label>
+                      <div class="input-with-icon">
+                        <i class="fa-solid fa-layer-group input-icon"></i>
+                        <input type="number" class="form-control" placeholder="Enter the number of boxes">
                       </div>
-                  </div>
-                  <div class="col-12 mt-4 text-center d-none d-md-block">
-                    <button type="submit" class="btn btn-brand-full">
-                      Get a Quote
-                    </button>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                      <label class="form-label fw-bold">Weight (per box)</label>
+                      <div class="input-with-icon">
+                        <i class="fa-solid fa-weight-hanging input-icon"></i>
+                        <input type="number" class="form-control" placeholder="Enter the weight of each box (kg)">
+                      </div>
+                    </div>
                   </div>
 
-                  <div class="col-12 mt-3 d-grid d-md-none">
-                    <button type="submit" class="btn btn-brand-mobile">
-                      Continue
-                    </button>
+                  <div class="row g-4">
+
+                    <div class="col-12 col-md-6">
+                      <label class="form-label fw-bold">List of items</label>
+                      <div class="input-with-icon">
+                        <i class="fa-solid fa-list-check input-icon"></i>
+                        <input type="text" class="form-control" placeholder="List down all items">
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <label class="form-label fw-bold">Transport mode</label>
+                      <div class="input-with-icon">
+                        <i class="fa-solid fa-truck-fast input-icon"></i>
+                        <select class="form-select">
+                          <option selected>Select Transport Mode</option>
+                          <option>By Air</option>
+                          <option>By Sea</option>
+                          <option>By Road</option>
+                        </select>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
-              </form>
-            </div>
+                <div class="col-12 mt-4 text-center d-none d-md-block">
+                  <button type="submit" class="btn btn-brand-full">
+                    Get a Quote
+                  </button>
+                </div>
+
+                <div class="col-12 mt-3 d-grid d-md-none">
+                  <button type="submit" class="btn btn-brand-mobile">
+                    Continue
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
 
-    <!-- section 2  -->
+  <!-- section 2  -->
 
-    <section class="ai-assistant-section d-none d-lg-block" style="background-image: url(image.png);height: 439px;background-color:#0B9D9A ;
+  <section class="ai-assistant-section d-none d-lg-block" style="background-image: url(assets/images/image.png);height: 439px;background-color:#0B9D9A ;
   background-color:#0B9D9A;
   background-blend-mode: overlay; 
   background-size: cover;
-  background-position: center;" >
-        <div class="container">
-            <div class="status-indicator">
-                <span class="dot"></span>
-                <span>AI ASSISTANT</span>
-            </div>
-            <h1>Ask Our Relocation AI</h1>
-            <p>Get instant answers about India moving procedures, customs clearance process and duties, quote amount, transit time and restricted goods.</p>
-            <div class="search-input-container">
-                <i class="fas fa-search search-input-icon"></i>
-                <input type="text" class="form-control search-input" placeholder="Type your question here...">
-            </div>
-        </div>
-    </section>
-
-
-    <section class="ai-assistant-section mt-4 mt-md-5 d-lg-none" style="background-image: url(image.png);height: 439px;background-color:#0B9D9A ;
-  background-color:#0B9D9A;
-  background-blend-mode: overlay; 
-  background-size: cover;
-  background-position: center;" >
-        <div class="container">
-            <div class="status-indicator">
-                <span class="dot"></span>
-                <span>AI ASSISTANT</span>
-            </div>
-            <h1>Ask Our Relocation AI</h1>
-            <p>Get instant answers about India moving procedures, customs clearance process and duties, quote amount, transit time and restricted goods.</p>
-            <div class="search-input-container">
-                <i class="fas fa-search search-input-icon"></i>
-                <input type="text" class="form-control search-input" placeholder="Type your question here...">
-            </div>
-        </div>
-    </section>
-
-    <!-- section 3  -->
-
-    <section class="choose-us-section d-none d-lg-block">
-        <div class="container">
-            <div class="row align-items-center gy-5">
-
-                <div class="col-7">
-                    <div class="row g-4">
-                        
-                        <div class="col-md-5">
-                            <div class="feature-card">
-                                <div class="icon-wrapper">
-                                    <i class="bi bi-box-seam"></i>
-                                </div>
-                                <h5>End-to-End Service</h5>
-                                <p style="font-size: medium;">Professional Packing, Customs Clearance and Delivery & Unpacking.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-7">
-                            <div class="feature-card">
-                                <div class="icon-wrapper">
-                                    <i class="bi bi-patch-check"></i>
-                                </div>
-                                <h5>Trusted Expertise</h5>
-                                <p style="font-size: medium;">10+ years of experience, IAM Trusted Member,SLA Member. Spirit on Enterprise Singapore Award.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="feature-card">
-                                <div class="icon-wrapper">
-                                    <i class="bi bi-shield-check"></i>
-                                </div>
-                                <h5>Safe & Insured</h5>
-                                <p style="font-size: medium;">Insurance Coverage, High Quality Packing. Less Damage and Delivery on Time</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6" style="height: 70%;">
-                            <div class="feature-card">
-                                <div class="icon-wrapper">
-                                    <i class="bi bi-globe-americas"></i>
-                                </div>
-                                <h5>Global Reach</h5>
-                                <p style="font-size: medium;">Own Offices in Singpaore, Malaysia and India</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="col-5">
-                    <div class="text-content ps-lg-5">
-                        <span class="tag-pil">APAC RELOCATION</span>
-                        <h2>Why Choose Us</h2>
-                        <p class="lead-text">
-                            Your trusted partner for seamless international moves.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="choose-us-section d-none d-md-block d-lg-none">
-        <div class="container">
-            <div class="row align-items-center gy-5">
-
-                <div class="col-7">
-                    <div class="row g-4">
-                        
-                        <div class="col-md-5">
-                            <div class="feature-card">
-                                <div class="icon-wrapper">
-                                    <i class="bi bi-box-seam"></i>
-                                </div>
-                                <h5>End-to-End Service</h5>
-                                <p>Professional Packing, Customs Clearance and Delivery & Unpacking.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-7" style="margin-top: 50px;">
-                            <div class="feature-card " >
-                                <div class="icon-wrapper">
-                                    <i class="bi bi-patch-check"></i>
-                                </div>
-                                <h5>Trusted Expertise</h5>
-                                <p>10+ years of experience, IAM Trusted Member,SLA Member. Spirit on Enterprise Singapore Award.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="feature-card">
-                                <div class="icon-wrapper">
-                                    <i class="bi bi-shield-check"></i>
-                                </div>
-                                <h5>Safe & Insured</h5>
-                                <p>Insurance Coverage, High Quality Packing. Less Damage and Delivery on Time</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6" >
-                            <div class="feature-card" style="height: 110%; ">
-                                <div class="icon-wrapper">
-                                    <i class="bi bi-globe-americas"></i>
-                                </div>
-                                <h5>Global Reach</h5>
-                                <p>Own Offices in Singpaore, Malaysia and India</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="col-5">
-                    <div class="text-content ps-lg-5">
-                        <span class="tag-pill">APAC RELOCATION</span>
-                        <h2 style="font-size: 1.75rem;">Why Choose Us</h2>
-                        <p class="lead-text">
-                            Your trusted partner for seamless international moves.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-   
-    <section class="choose-us-section py-5 d-block d-sm-none">
+  background-position: center;">
     <div class="container">
-        <div class="row gy-5 align-items-lg-center">
+      <div class="status-indicator">
+        <span class="dot"></span>
+        <span>AI ASSISTANT</span>
+      </div>
+      <h1>Ask Our Relocation AI</h1>
+      <p>Get instant answers about India moving procedures, customs clearance process and duties, quote amount, transit
+        time and restricted goods.</p>
+      <div class="search-input-container">
+        <i class="fas fa-search search-input-icon"></i>
+        <input type="text" class="form-control search-input" placeholder="Type your question here...">
+      </div>
+    </div>
+  </section>
 
-            <div class="col-12 col-lg-5 order-1 order-lg-2 text-center text-lg-start">
-                <div class="text-content ps-lg-2">
-                    <span class="tag-pill">APAC RELOCATION</span>
-                    <h2 style="font-size: 1.75rem; margin: .5rem 0rem;">Why Choose Us</h2>
-                    <p class="" style="font-size: small;">
-                        Your trusted partner for seamless international moves.
-                    </p>
+
+  <section class="ai-assistant-section mt-4 mt-md-5 d-lg-none" style="background-image: url(assets/images/image.png);height: 439px;background-color:#0B9D9A ;
+  background-color:#0B9D9A;
+  background-blend-mode: overlay; 
+  background-size: cover;
+  background-position: center;">
+    <div class="container">
+      <div class="status-indicator">
+        <span class="dot"></span>
+        <span>AI ASSISTANT</span>
+      </div>
+      <h1>Ask Our Relocation AI</h1>
+      <p>Get instant answers about India moving procedures, customs clearance process and duties, quote amount, transit
+        time and restricted goods.</p>
+      <div class="search-input-container">
+        <i class="fas fa-search search-input-icon"></i>
+        <input type="text" class="form-control search-input" placeholder="Type your question here...">
+      </div>
+    </div>
+  </section>
+
+  <!-- section 3  -->
+
+  <section class="choose-us-section d-none d-lg-block">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+
+        <div class="col-7">
+          <div class="row g-4">
+
+            <div class="col-md-5">
+              <div class="feature-card">
+                <div class="icon-wrapper">
+                  <i class="bi bi-box-seam"></i>
                 </div>
-            </div>
-
-            <div class="col-12 col-lg-7 order-2 order-lg-1">
-                <div class="row g-4 px-2fv">
-                    
-                    <div class="col-6">
-                        <div class="feature-card">
-                            <div class="icon-wrapper">
-                                <i class="bi bi-box-seam"></i>
-                            </div>
-                            <h5>End-to-End Service</h5>
-                            <p>Packing, shipping, customs, and final delivery.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="col-6">
-                        <div class="feature-card">
-                            <div class="icon-wrapper">
-                                <i class="bi bi-patch-check"></i>
-                            </div>
-                            <h5>Trusted Expertise</h5>
-                            <p>10+ years of experience, IAM Member, SOE Award.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-6">
-                        <div class="feature-card">
-                            <div class="icon-wrapper">
-                                <i class="bi bi-shield-check"></i>
-                            </div>
-                            <h5>Safe & Insured</h5>
-                            <p>Full insurance. Guarantee: Safe, Insured & On-Time.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-6">
-                        <div class="feature-card">
-                            <div class="icon-wrapper">
-                                <i class="bi bi-globe-americas"></i>
-                            </div>
-                            <h5>Global Reach</h5>
-                            <p>20,000+ successful relocations worldwide.</p>
-                        </div>
-                    </div>
-
-    </div> </div> </div> </div> </section>
-
-    <!-- section 4 -->
-
-    <section class="moving-process-section d-none d-lg-block ">
-        <div class="container">
-            <div class="process-header text-center">
-                <span class="tag-pill">SIMPLIFYING COMPLEXITY</span>
-                <h2>The Moving Process</h2>
-            </div>
-
-            <div class="row align-items-center justify-content-center g-3 g-md-5">
-                <div class="col-lg-6">
-                    <div class="process-timeline">
-                        <div class="process-item">
-                            <div class="dot"></div>
-                            <div class="process-card">
-                                <h5>Consultation</h5>
-                                <p>Our team handles all customs documentation and clearance for a smooth entry.</p>
-                            </div>
-                        </div>
-
-                        <div class="process-item">
-                            <div class="dot"></div>
-                            <div class="process-card">
-                                <h5>Expert Packing</h5>
-                                <p>Our professional team meticulously packs and inventories your belongings.</p>
-                            </div>
-                        </div>
-
-                        <div class="process-item">
-                            <div class="dot"></div>
-                            <div class="process-card">
-                                <h5>Shipping & Tracking</h5>
-                                <p>We manage the shipping and provide you with real-time updates on your shipment's status.</p>
-                            </div>
-                        </div>
-
-                        <div class="process-item">
-                            <div class="dot"></div>
-                            <div class="process-card">
-                                <h5>Customs Clearance</h5>
-                                <p>Our team handles all customs documentation and clearance for a smooth entry.</p>
-                            </p>
-                            </div>
-                        </div>
-
-                        <div class="process-item">
-                            <div class="dot"></div>
-                            <div class="process-card">
-                                <h5>Delivery & Unpacking</h5>
-                                <p>Your items are delivered to your new home in India and set up as you wish.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="process-image-wrapper h-100">
-                         <img src="/section3.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-     <section class="moving-process-section d-none d-sm-block d-lg-none">
-        <div class="container">
-            <div class="process-header text-center">
-                <span class="tag-pill">SIMPLIFYING COMPLEXITY</span>
-                <h2>The Moving Process</h2>
-            </div>
-
-            <div class="row align-items-center justify-content-center g-3 g-md-5">
-                <div class="col-6">
-                    <div class="process-timeline">
-                        <div class="process-item">
-                            <div class="dot"></div>
-                            <div class="process-card">
-                                <h5>Consultation</h5>
-                                <p>Our team handles all customs documentation and clearance for a smooth entry.</p>
-                            </div>
-                        </div>
-
-                        <div class="process-item">
-                            <div class="dot"></div>
-                            <div class="process-card">
-                                <h5>Expert Packing</h5>
-                                <p>Our professional team meticulously packs and inventories your belongings.</p>
-                            </div>
-                        </div>
-
-                        <div class="process-item">
-                            <div class="dot"></div>
-                            <div class="process-card">
-                                <h5>Shipping & Tracking</h5>
-                                <p>We manage the shipping and provide you with real-time updates on your shipment's status.</p>
-                            </div>
-                        </div>
-
-                        <div class="process-item">
-                            <div class="dot"></div>
-                            <div class="process-card">
-                                <h5>Customs Clearance</h5>
-                                <p>Our team handles all customs documentation and clearance for a smooth entry.</p>
-                            </p>
-                            </div>
-                        </div>
-
-                        <div class="process-item">
-                            <div class="dot"></div>
-                            <div class="process-card">
-                                <h5>Delivery & Unpacking</h5>
-                                <p>Your items are delivered to your new home in India and set up as you wish.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6">
-                    <div class="process-image-wrapper">
-                         <img src="/section3.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="steps-area d-block d-sm-none bg-light-custom">
-     <div class="container">
-        
-        <div class="steps-header text-center mb-5">
-            <span class="steps-tag">SIMPLIFYING COMPLEXITY</span>
-            <h2>The Moving Process</h2>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-10">
-
-                <div class="step-box">
-                    <div class="step-background-number">01</div>
-                    <div class="step-text-content">
-                        <h5>Consultation</h5>
-                        <p>Start with a free consultation and a personalized quote.</p>
-                    </div>
-                </div>
-
-                <div class="step-box">
-                    <div class="step-background-number">02</div>
-                    <div class="step-text-content">
-                        <h5>Expert Packing</h5>
-                        <p>Our professional team meticulously packs and inventories your belongings.</p>
-                    </div>
-                </div>
-
-                <div class="step-box">
-                    <div class="step-background-number">03</div>
-                    <div class="step-text-content">
-                        <h5>Shipping & Tracking</h5>
-                        <p>Our professional team meticulously packs and inventories your belongings.</p>
-                    </div>
-                </div>
-                
-                <div class="step-box">
-                    <div class="step-background-number">04</div>
-                    <div class="step-text-content">
-                        <h5>UAE Customs Clearance</h5>
-                        <p>Start with a free consultation and a personalized quote.</p>
-                    </div>
-                </div>
-
-                <div class="step-box">
-                    <div class="step-background-number">05</div>
-                    <div class="step-text-content">
-                        <h5>Consultation</h5>
-                        <p>Your items are delivered to your new home in India and set up as you wish.</p>
-                    </div>
-                </div>
-
-    </div> </div> </div> </section>
-
-    <section class="how-it-works-section">
-        <div class="container">
-            <div class="row align-items-center">
-
-                <div class="col-sm-5 col-lg-6 mb-4  mb-lg-0 left-content">
-                  <div class="text-center text-md-start">
-                      <span class="tag-pill">TIMELINE</span>
-                      <h2>How It Works</h2>
-                  </div>
-
-
-                    <div class="timeline-steps-wrapper">
-                        
-                        <div class="timeline-step active">
-                            <div class="step-number">1</div>
-                            <div>
-                                <h5 class="step-title">Consultation</h5>
-                                <p class="step-description pt-2">Share moving details.</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-step">
-                            <div class="step-number">2</div>
-                            <div>
-                                <h5 class="step-title">Packing & Shipping</h5>
-                                <!-- <p class="step-description">Professional team packs your belongings securely.</p> -->
-                            </div>
-                        </div>
-
-                        <div class="timeline-step">
-                            <div class="step-number">3</div>
-                            <div>
-                                <h5 class="step-title">Customs & Delivery</h5>
-                                <!-- <p class="step-description">Seamless customs clearance and doorstep delivery.</p> -->
-                            </div>
-                        </div>
-
-                        <div class="timeline-step">
-                            <div class="step-number">4</div>
-                            <div>
-                                <h5 class="step-title">Welcome to India</h5>
-                                <!-- <p class="step-description">Your new home is ready with everything in place.</p> -->
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-               <div class="col-sm-5 col-lg-6">
-                  <div class="image-collages">
-                      <img src="/section4.png" alt="" class="img-fluid" style="max-height: 600px; width: 100%; object-fit: cover;">
-                  </div>
+                <h5>End-to-End Service</h5>
+                <p style="font-size: medium;">Professional Packing, Customs Clearance and Delivery & Unpacking.</p>
               </div>
-
-
-            </div>
-        </div>
-    </section>
-
-
-    <section class="py-5 bg-light-custom">
-        <div class="container">
-
-            <div class="text-center mb-5">
-                <span class="tag-pill">
-                    <i class="bi bi-circle-fill"></i>
-                    TOP NEIGHBORHOODS IN INDIA
-                </span>
-
-                <h2 class="fw-bold text-dark">
-                    <span class="heading-highlight">Discover Your New Home</span>
-                </h2>
             </div>
 
-            <div class="row g-4 row-cols-1 row-cols-md-2">
-
-                <!-- Card 1 -->
-                <div class="col">
-                    <div class="location-card">
-                        <img src="/secton4.1.png" class="location-card-image" alt="Chennai">
-                        <div class="p-4 d-flex justify-content-between align-items-center">
-                            <div>
-                                <h5 class="h5 fw-bold text-dark mb-1">Mumbai</h5>
-                                <p class="small text-muted mb-0">Experience Luxury & Lifestyle in Mumbai’s Prime Locations</p>
-                            </div>
-                            <a href="#" class="arrow-button ms-4">
-                                <i class="bi bi-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
+            <div class="col-md-7">
+              <div class="feature-card">
+                <div class="icon-wrapper">
+                  <i class="bi bi-patch-check"></i>
                 </div>
-
-                <!-- Card 2 -->
-                 <div class="col">
-                    <div class="location-card">
-                        <img src="/secton4.2.png" class="location-card-image" alt="Chennai">
-                        <div class="p-4 d-flex justify-content-between align-items-center">
-                            <div>
-                                <h5 class="h5 fw-bold text-dark mb-1">Delhi (NCR Region)</h5>
-                                <p class="small text-muted mb-0">Live Close to Culture and Connectivity in Delhi NCR</p>
-                            </div>
-                            <a href="#" class="arrow-button ms-4">
-                                <i class="bi bi-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="col">
-                    <div class="location-card">
-                        <img src="/secton4.3.png" class="location-card-image" alt="Chennai">
-                        <div class="p-4 d-flex justify-content-between align-items-center">
-                            <div>
-                                <h5 class="h5 fw-bold text-dark mb-1">Chennai</h5>
-                                <p class="small text-muted mb-0">Peaceful Living with Coastal Charm</p>
-                            </div>
-                            <a href="#" class="arrow-button ms-4">
-                                <i class="bi bi-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="col">
-                    <div class="location-card">
-                        <img src="/secton4.4.png" class="location-card-image" alt="Bengaluru">
-                        <div class="p-4 d-flex justify-content-between align-items-center">
-                            <div>
-                                <h5 class="h5 fw-bold text-dark mb-1">Bengaluru</h5>
-                                <p class="small text-muted mb-0">The Silicon Valley of India Green, Global, and Connected</p>
-                            </div>
-                            <a href="#" class="arrow-button ms-4">
-                                <i class="bi bi-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+                <h5>Trusted Expertise</h5>
+                <p style="font-size: medium;">10+ years of experience, IAM Trusted Member,SLA Member. Spirit on
+                  Enterprise Singapore Award.</p>
+              </div>
             </div>
 
-        </div>
-    </section>
+            <div class="col-md-6">
+              <div class="feature-card">
+                <div class="icon-wrapper">
+                  <i class="bi bi-shield-check"></i>
+                </div>
+                <h5>Safe & Insured</h5>
+                <p style="font-size: medium;">Insurance Coverage, High Quality Packing. Less Damage and Delivery on Time
+                </p>
+              </div>
+            </div>
 
+            <div class="col-md-6" style="height: 70%;">
+              <div class="feature-card">
+                <div class="icon-wrapper">
+                  <i class="bi bi-globe-americas"></i>
+                </div>
+                <h5>Global Reach</h5>
+                <p style="font-size: medium;">Own Offices in Singpaore, Malaysia and India</p>
+              </div>
+            </div>
 
-    <section class="py-5">
-      <div class="container">
-        <!-- Heading -->
-        <div class="text-center text-md-start">
-          <span class="tag-pil">Major Schools</span>
-          <h2 class="fw-bold mb-1">Education for Excellence</h2>
-          <p class="text-muted fs-6 mb-4">Your Guide to India's Top Schools</p>
-        </div>
-        <div class="row g-4">
-          <!-- LEFT IMAGE -->
-          <div class="col-lg-5">
-            <img
-              src="/education.png"
-              class="main-school-image"
-              alt="School Image"
-            />
           </div>
+        </div>
 
-          <!-- RIGHT CARDS -->
-          <div class="col-lg-7">
-            <div class="row g-4">
-              <!-- Card 1 -->
-              <div class="col-md-6 mt-lg-4">
-                <div class="school-card">
-                  <div class="school-icon"><i class="bi bi-info-circle"></i></div>
-                  <div>
-                    <p class="school-title">India American Academy</p>
-                    <p class="school-desc">
-                      American curriculum with excellent facilities
-                    </p>
-                  </div>
-                </div>
-              </div>
+        <div class="col-5">
+          <div class="text-content ps-lg-5">
+            <span class="tag-pil">APAC RELOCATION</span>
+            <h2>Why Choose Us</h2>
+            <p class="lead-text">
+              Your trusted partner for seamless international moves.
+            </p>
+          </div>
+        </div>
 
-              <!-- Card 2 -->
-              <div class="col-md-6 mt-lg-4">
-                <div class="school-card">
-                  <div class="school-icon"><i class="bi bi-info-circle"></i></div>
-                  <div>
-                    <p class="school-title">
-                      GEMS Wellington International School
-                    </p>
-                    <p class="school-desc">
-                      British curriculum, outstanding academic results
-                    </p>
-                  </div>
-                </div>
-              </div>
+      </div>
+    </div>
+  </section>
 
-              <!-- Card 3 -->
-              <div class="col-md-6">
-                <div class="school-card">
-                  <div class="school-icon"><i class="bi bi-info-circle"></i></div>
-                  <div>
-                    <p class="school-title">Repton School India</p>
-                    <p class="school-desc">
-                      Premium British education with world-class sports
-                    </p>
-                  </div>
-                </div>
-              </div>
+  <section class="choose-us-section d-none d-md-block d-lg-none">
+    <div class="container">
+      <div class="row align-items-center gy-5">
 
-              <!-- Card 4 -->
-              <div class="col-md-6">
-                <div class="school-card">
-                  <div class="school-icon"><i class="bi bi-info-circle"></i></div>
-                  <div>
-                    <p class="school-title">JESS (Jumeirah English School)</p>
-                    <p class="school-desc">
-                      Established British school with strong community
-                    </p>
-                  </div>
+        <div class="col-7">
+          <div class="row g-4">
+
+            <div class="col-md-5">
+              <div class="feature-card">
+                <div class="icon-wrapper">
+                  <i class="bi bi-box-seam"></i>
                 </div>
+                <h5>End-to-End Service</h5>
+                <p>Professional Packing, Customs Clearance and Delivery & Unpacking.</p>
               </div>
             </div>
+
+            <div class="col-md-7" style="margin-top: 50px;">
+              <div class="feature-card ">
+                <div class="icon-wrapper">
+                  <i class="bi bi-patch-check"></i>
+                </div>
+                <h5>Trusted Expertise</h5>
+                <p>10+ years of experience, IAM Trusted Member,SLA Member. Spirit on Enterprise Singapore Award.</p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="feature-card">
+                <div class="icon-wrapper">
+                  <i class="bi bi-shield-check"></i>
+                </div>
+                <h5>Safe & Insured</h5>
+                <p>Insurance Coverage, High Quality Packing. Less Damage and Delivery on Time</p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="feature-card" style="height: 110%; ">
+                <div class="icon-wrapper">
+                  <i class="bi bi-globe-americas"></i>
+                </div>
+                <h5>Global Reach</h5>
+                <p>Own Offices in Singpaore, Malaysia and India</p>
+              </div>
+            </div>
+
           </div>
-          <!-- col-lg-7 -->
+        </div>
+
+        <div class="col-5">
+          <div class="text-content ps-lg-5">
+            <span class="tag-pill">APAC RELOCATION</span>
+            <h2 style="font-size: 1.75rem;">Why Choose Us</h2>
+            <p class="lead-text">
+              Your trusted partner for seamless international moves.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="choose-us-section py-5 d-block d-sm-none">
+    <div class="container">
+      <div class="row gy-5 align-items-lg-center">
+
+        <div class="col-12 col-lg-5 order-1 order-lg-2 text-center text-lg-start">
+          <div class="text-content ps-lg-2">
+            <span class="tag-pill">APAC RELOCATION</span>
+            <h2 style="font-size: 1.75rem; margin: .5rem 0rem;">Why Choose Us</h2>
+            <p class="" style="font-size: small;">
+              Your trusted partner for seamless international moves.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-7 order-2 order-lg-1">
+          <div class="row g-4 px-2fv">
+
+            <div class="col-6">
+              <div class="feature-card">
+                <div class="icon-wrapper">
+                  <i class="bi bi-box-seam"></i>
+                </div>
+                <h5>End-to-End Service</h5>
+                <p>Packing, shipping, customs, and final delivery.</p>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="feature-card">
+                <div class="icon-wrapper">
+                  <i class="bi bi-patch-check"></i>
+                </div>
+                <h5>Trusted Expertise</h5>
+                <p>10+ years of experience, IAM Member, SOE Award.</p>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="feature-card">
+                <div class="icon-wrapper">
+                  <i class="bi bi-shield-check"></i>
+                </div>
+                <h5>Safe & Insured</h5>
+                <p>Full insurance. Guarantee: Safe, Insured & On-Time.</p>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="feature-card">
+                <div class="icon-wrapper">
+                  <i class="bi bi-globe-americas"></i>
+                </div>
+                <h5>Global Reach</h5>
+                <p>20,000+ successful relocations worldwide.</p>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
+  <!-- section 4 -->
 
-    <section class="py-5 bg-light-custom">
-      <div class="container">
-        <!-- Section Header -->
-        <div class="text-center mb-5">
-            <span class="tag-pill">
-                    <i class="bi bi-circle-fill"></i>
-                    Family Accommodation
-                </span>
-          <h2 class="fw-bold text-dark mt-2">
-            Finding the Perfect Family Home
-          </h2>
-          <p class="text-muted fs-5">
-            Provide more specific details about areas with amenities for
-            families.
-          </p>
+  <section class="moving-process-section d-none d-lg-block ">
+    <div class="container">
+      <div class="process-header text-center">
+        <span class="tag-pill">SIMPLIFYING COMPLEXITY</span>
+        <h2>The Moving Process</h2>
+      </div>
+
+      <div class="row align-items-center justify-content-center g-3 g-md-5">
+        <div class="col-lg-6">
+          <div class="process-timeline">
+            <div class="process-item">
+              <div class="dot"></div>
+              <div class="process-card">
+                <h5>Consultation</h5>
+                <p>Our team handles all customs documentation and clearance for a smooth entry.</p>
+              </div>
+            </div>
+
+            <div class="process-item">
+              <div class="dot"></div>
+              <div class="process-card">
+                <h5>Expert Packing</h5>
+                <p>Our professional team meticulously packs and inventories your belongings.</p>
+              </div>
+            </div>
+
+            <div class="process-item">
+              <div class="dot"></div>
+              <div class="process-card">
+                <h5>Shipping & Tracking</h5>
+                <p>We manage the shipping and provide you with real-time updates on your shipment's status.</p>
+              </div>
+            </div>
+
+            <div class="process-item">
+              <div class="dot"></div>
+              <div class="process-card">
+                <h5>Customs Clearance</h5>
+                <p>Our team handles all customs documentation and clearance for a smooth entry.</p>
+                </p>
+              </div>
+            </div>
+
+            <div class="process-item">
+              <div class="dot"></div>
+              <div class="process-card">
+                <h5>Delivery & Unpacking</h5>
+                <p>Your items are delivered to your new home in India and set up as you wish.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Main Grid -->
-        <div class="row g-4">
-          <!-- Left Column (Badi Card) -->
-          <div class="col-md-7">
-            <a href="#" class="location-card card-large">
-              <img
-                src="/find1.png"
-                alt="Koregaon Park"
-                class="location-card-img"
-              />
+        <div class="col-lg-6">
+          <div class="process-image-wrapper h-100">
+            <img src="assets/images/section3.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="moving-process-section d-none d-sm-block d-lg-none">
+    <div class="container">
+      <div class="process-header text-center">
+        <span class="tag-pill">SIMPLIFYING COMPLEXITY</span>
+        <h2>The Moving Process</h2>
+      </div>
+
+      <div class="row align-items-center justify-content-center g-3 g-md-5">
+        <div class="col-6">
+          <div class="process-timeline">
+            <div class="process-item">
+              <div class="dot"></div>
+              <div class="process-card">
+                <h5>Consultation</h5>
+                <p>Our team handles all customs documentation and clearance for a smooth entry.</p>
+              </div>
+            </div>
+
+            <div class="process-item">
+              <div class="dot"></div>
+              <div class="process-card">
+                <h5>Expert Packing</h5>
+                <p>Our professional team meticulously packs and inventories your belongings.</p>
+              </div>
+            </div>
+
+            <div class="process-item">
+              <div class="dot"></div>
+              <div class="process-card">
+                <h5>Shipping & Tracking</h5>
+                <p>We manage the shipping and provide you with real-time updates on your shipment's status.</p>
+              </div>
+            </div>
+
+            <div class="process-item">
+              <div class="dot"></div>
+              <div class="process-card">
+                <h5>Customs Clearance</h5>
+                <p>Our team handles all customs documentation and clearance for a smooth entry.</p>
+                </p>
+              </div>
+            </div>
+
+            <div class="process-item">
+              <div class="dot"></div>
+              <div class="process-card">
+                <h5>Delivery & Unpacking</h5>
+                <p>Your items are delivered to your new home in India and set up as you wish.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="process-image-wrapper">
+            <img src="assets/images/section3.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="steps-area d-block d-sm-none bg-light-custom">
+    <div class="container">
+
+      <div class="steps-header text-center mb-5">
+        <span class="steps-tag">SIMPLIFYING COMPLEXITY</span>
+        <h2>The Moving Process</h2>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+
+          <div class="step-box">
+            <div class="step-background-number">01</div>
+            <div class="step-text-content">
+              <h5>Consultation</h5>
+              <p>Start with a free consultation and a personalized quote.</p>
+            </div>
+          </div>
+
+          <div class="step-box">
+            <div class="step-background-number">02</div>
+            <div class="step-text-content">
+              <h5>Expert Packing</h5>
+              <p>Our professional team meticulously packs and inventories your belongings.</p>
+            </div>
+          </div>
+
+          <div class="step-box">
+            <div class="step-background-number">03</div>
+            <div class="step-text-content">
+              <h5>Shipping & Tracking</h5>
+              <p>Our professional team meticulously packs and inventories your belongings.</p>
+            </div>
+          </div>
+
+          <div class="step-box">
+            <div class="step-background-number">04</div>
+            <div class="step-text-content">
+              <h5>UAE Customs Clearance</h5>
+              <p>Start with a free consultation and a personalized quote.</p>
+            </div>
+          </div>
+
+          <div class="step-box">
+            <div class="step-background-number">05</div>
+            <div class="step-text-content">
+              <h5>Consultation</h5>
+              <p>Your items are delivered to your new home in India and set up as you wish.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works-section">
+    <div class="container">
+      <div class="row align-items-center">
+
+        <div class="col-sm-5 col-lg-6 mb-4  mb-lg-0 left-content">
+          <div class="text-center text-md-start">
+            <span class="tag-pill">TIMELINE</span>
+            <h2>How It Works</h2>
+          </div>
+
+
+          <div class="timeline-steps-wrapper">
+
+            <div class="timeline-step active">
+              <div class="step-number">1</div>
+              <div>
+                <h5 class="step-title">Consultation</h5>
+                <p class="step-description pt-2">Share moving details.</p>
+              </div>
+            </div>
+
+            <div class="timeline-step">
+              <div class="step-number">2</div>
+              <div>
+                <h5 class="step-title">Packing & Shipping</h5>
+                <!-- <p class="step-description">Professional team packs your belongings securely.</p> -->
+              </div>
+            </div>
+
+            <div class="timeline-step">
+              <div class="step-number">3</div>
+              <div>
+                <h5 class="step-title">Customs & Delivery</h5>
+                <!-- <p class="step-description">Seamless customs clearance and doorstep delivery.</p> -->
+              </div>
+            </div>
+
+            <div class="timeline-step">
+              <div class="step-number">4</div>
+              <div>
+                <h5 class="step-title">Welcome to India</h5>
+                <!-- <p class="step-description">Your new home is ready with everything in place.</p> -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-sm-5 col-lg-6">
+          <div class="image-collages">
+            <img src="assets/images/section4.png" alt="" class="img-fluid"
+              style="max-height: 600px; width: 100%; object-fit: cover;">
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="py-5 bg-light-custom">
+    <div class="container">
+
+      <div class="text-center mb-5">
+        <span class="tag-pill">
+          <i class="bi bi-circle-fill"></i>
+          TOP NEIGHBORHOODS IN INDIA
+        </span>
+
+        <h2 class="fw-bold text-dark">
+          <span class="heading-highlight">Discover Your New Home</span>
+        </h2>
+      </div>
+
+      <div class="row g-4 row-cols-1 row-cols-md-2">
+
+        <!-- Card 1 -->
+        <div class="col">
+          <div class="location-card">
+            <img src="assets/images/secton4.1.png" class="location-card-image" alt="Chennai">
+            <div class="p-4 d-flex justify-content-between align-items-center">
+              <div>
+                <h5 class="h5 fw-bold text-dark mb-1">Mumbai</h5>
+                <p class="small text-muted mb-0">Experience Luxury & Lifestyle in Mumbai’s Prime Locations</p>
+              </div>
+              <a href="#" class="arrow-button ms-4">
+                <i class="bi bi-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col">
+          <div class="location-card">
+            <img src="assets/images/secton4.2.png" class="location-card-image" alt="Chennai">
+            <div class="p-4 d-flex justify-content-between align-items-center">
+              <div>
+                <h5 class="h5 fw-bold text-dark mb-1">Delhi (NCR Region)</h5>
+                <p class="small text-muted mb-0">Live Close to Culture and Connectivity in Delhi NCR</p>
+              </div>
+              <a href="#" class="arrow-button ms-4">
+                <i class="bi bi-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col">
+          <div class="location-card">
+            <img src="assets/images/secton4.3.png" class="location-card-image" alt="Chennai">
+            <div class="p-4 d-flex justify-content-between align-items-center">
+              <div>
+                <h5 class="h5 fw-bold text-dark mb-1">Chennai</h5>
+                <p class="small text-muted mb-0">Peaceful Living with Coastal Charm</p>
+              </div>
+              <a href="#" class="arrow-button ms-4">
+                <i class="bi bi-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col">
+          <div class="location-card">
+            <img src="assets/images/secton4.4.png" class="location-card-image" alt="Bengaluru">
+            <div class="p-4 d-flex justify-content-between align-items-center">
+              <div>
+                <h5 class="h5 fw-bold text-dark mb-1">Bengaluru</h5>
+                <p class="small text-muted mb-0">The Silicon Valley of India Green, Global, and Connected</p>
+              </div>
+              <a href="#" class="arrow-button ms-4">
+                <i class="bi bi-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="py-5">
+    <div class="container">
+      <!-- Heading -->
+      <div class="text-center text-md-start">
+        <span class="tag-pil">Major Schools</span>
+        <h2 class="fw-bold mb-1">Education for Excellence</h2>
+        <p class="text-muted fs-6 mb-4">Your Guide to India's Top Schools</p>
+      </div>
+      <div class="row g-4">
+        <!-- LEFT IMAGE -->
+        <div class="col-lg-5">
+          <img src="assets/images/education.png" class="main-school-image" alt="School Image" />
+        </div>
+
+        <!-- RIGHT CARDS -->
+        <div class="col-lg-7">
+          <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-md-6 mt-lg-4">
+              <div class="school-card">
+                <div class="school-icon"><i class="bi bi-info-circle"></i></div>
+                <div>
+                  <p class="school-title">India American Academy</p>
+                  <p class="school-desc">
+                    American curriculum with excellent facilities
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-6 mt-lg-4">
+              <div class="school-card">
+                <div class="school-icon"><i class="bi bi-info-circle"></i></div>
+                <div>
+                  <p class="school-title">
+                    GEMS Wellington International School
+                  </p>
+                  <p class="school-desc">
+                    British curriculum, outstanding academic results
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-6">
+              <div class="school-card">
+                <div class="school-icon"><i class="bi bi-info-circle"></i></div>
+                <div>
+                  <p class="school-title">Repton School India</p>
+                  <p class="school-desc">
+                    Premium British education with world-class sports
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-md-6">
+              <div class="school-card">
+                <div class="school-icon"><i class="bi bi-info-circle"></i></div>
+                <div>
+                  <p class="school-title">JESS (Jumeirah English School)</p>
+                  <p class="school-desc">
+                    Established British school with strong community
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- col-lg-7 -->
+      </div>
+    </div>
+  </section>
+
+
+  <section class="py-5 bg-light-custom">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="text-center mb-5">
+        <span class="tag-pill">
+          <i class="bi bi-circle-fill"></i>
+          Family Accommodation
+        </span>
+        <h2 class="fw-bold text-dark mt-2">
+          Finding the Perfect Family Home
+        </h2>
+        <p class="text-muted fs-5">
+          Provide more specific details about areas with amenities for
+          families.
+        </p>
+      </div>
+
+      <!-- Main Grid -->
+      <div class="row g-4">
+        <!-- Left Column (Badi Card) -->
+        <div class="col-md-7">
+          <a href="#" class="location-card card-large">
+            <img src="assets/images/find1.png" alt="Koregaon Park" class="location-card-img" />
+
+            <div class="card-content-overlay">
+              <h5>Koregaon Park</h5>
+              <p>
+                Lush greenery, trendy cafes, luxury apartments and villas,
+                close to international schools.
+              </p>
+              <button class="explore-link">
+                <span>Explore Now</span>
+                <span class="arrow-circle"><i class="bi bi-arrow-up-right"></i></span>
+              </button>
+            </div>
+          </a>
+        </div>
+
+        <!-- Right Column (Chhote Cards) -->
+        <div class="col-md-5">
+          <!-- Right column ko vertical stack ke liye 'd-flex' aur 'gap' ka istemaal -->
+          <div class="d-flex flex-column gap-4">
+            <!-- Card 1 (Right-Top) -->
+            <a href="#" class="location-card card-small">
+              <img src="assets/images/find2.png" alt="Brookefield" class="location-card-img" />
 
               <div class="card-content-overlay">
-                <h5>Koregaon Park</h5>
+                <h5>Brookefield</h5>
                 <p>
-                  Lush greenery, trendy cafes, luxury apartments and villas,
-                  close to international schools.
+                  IT parks, good connectivity, modern apartments, lots of
+                  shops & restaurants.
                 </p>
                 <button class="explore-link">
                   <span>Explore Now</span>
-                  <span class="arrow-circle"
-                    ><i class="bi bi-arrow-up-right"></i
-                  ></span>
+                  <span class="arrow-circle"><i class="bi bi-arrow-up-right"></i></span>
+                </button>
+              </div>
+            </a>
+
+            <!-- Card 2 (Right-Bottom) -->
+            <a href="#" class="location-card card-small">
+              <img src="assets/images/find3.png" alt="Vaishali Nagar" class="location-card-img" />
+
+              <div class="card-content-overlay">
+                <h5>Vaishali Nagar</h5>
+                <p>
+                  Well-planned colony, modern amenities, good schools,
+                  self-sufficient lifestyle.
+                </p>
+                <button class="explore-link">
+                  <span>Explore Now</span>
+                  <span class="arrow-circle"><i class="bi bi-arrow-up-right"></i></span>
                 </button>
               </div>
             </a>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <!-- Right Column (Chhote Cards) -->
-          <div class="col-md-5">
-            <!-- Right column ko vertical stack ke liye 'd-flex' aur 'gap' ka istemaal -->
-            <div class="d-flex flex-column gap-4">
-              <!-- Card 1 (Right-Top) -->
-              <a href="#" class="location-card card-small">
-                <img
-                  src="/find2.png"
-                  alt="Brookefield"
-                  class="location-card-img"
-                />
 
-                <div class="card-content-overlay">
-                  <h5>Brookefield</h5>
-                  <p>
-                    IT parks, good connectivity, modern apartments, lots of
-                    shops & restaurants.
-                  </p>
-                 <button class="explore-link">
-                  <span>Explore Now</span>
-                  <span class="arrow-circle"
-                    ><i class="bi bi-arrow-up-right"></i
-                  ></span>
-                </button>
+  <div class="container container-lg py-5 my-md-4">
+
+
+    <div class="text-center mb-5">
+
+      <span class="tag-pill">
+        <i class="bi bi-circle-fill"></i>
+        Settle In Comfortably
+      </span>
+
+      <h1 class=" fw-bold text-dark">
+        Short-Term Accommodation
+      </h1>
+    </div>
+
+
+    <div class="row g-2 g-sm-5 align-items-center mb-2 mb-sm-5">
+
+      <div class="col-md-6 order-md-1 order-2 text-start">
+        <h2 class="display-6 fw-semibold">Hotel Apartments</h2>
+        <!-- Replaced 'text-lg' with 'fs-5' and 'text-gray-600' with 'text-muted' -->
+        <p class="fs-5 text-muted">
+          Discuss the convenience of furnished hotel apartments for the first few weeks.
+        </p>
+      </div>
+
+      <!-- Image Column (Right on desktop, Top on mobile) -->
+      <div class="col-md-6 order-md-2 order-1">
+        <!-- Replaced 'w-full', 'rounded-xl', 'shadow-lg' with Bootstrap 'img-fluid', 'rounded-4', 'shadow-lg' -->
+        <img src="assets/images/short1.png" alt="Spacious hotel lobby with large flower arrangements and marble floors"
+          class="img-fluid rounded-4">
+      </div>
+    </div>
+
+    <!-- 3. Second Row: Furnished Rentals -->
+    <!-- This row doesn't need order classes as it follows the natural flow -->
+    <div class="row g-3 g-md-5 align-items-center">
+
+      <!-- Image Column (Left on desktop, Top on mobile) -->
+      <div class="col-md-6">
+        <img src="assets/images/short2.png" alt="A couple sitting on a couch in a modern furnished apartment, looking at a laptop"
+          class="img-fluid rounded-4">
+      </div>
+
+      <!-- Text Column (Right on desktop, Bottom on mobile) -->
+      <div class="col-md-6 text-start">
+        <h2 class="display-6 fw-semibold">Furnished Rentals</h2>
+        <p class="fs-5 text-muted">
+          Mention services that provide short-term leases on furnished homes.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <section style="background-color: #F5F5F5; padding: 20px 0px;">
+    <div class="container my-4">
+
+      <!-- Header -->
+      <div class="text-center mb-5">
+        <span class="tag-pill">
+          <i class="bi bi-circle-fill"></i> YOUR NEW CITY AWAITS
+        </span>
+        <h1 class="display-5 fw-bold text-dark">Experience India</h1>
+      </div>
+
+      <!-- Desktop Grid (hidden on mobile) -->
+      <div class="row row-cols-1 row-cols-md-3 g-4 d-none d-md-flex">
+
+        <!-- Card 1 -->
+        <div class="col">
+          <div class="card h-100 rounded-4">
+            <img src="assets/images/india1.png" class="card-img-top p-3" alt="">
+            <div class="card-body p-4">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h5 class="fw-bold mb-1">Taj Mahal</h5>
+                  <p class="text-muted small">For breathtaking views.</p>
                 </div>
-              </a>
-
-              <!-- Card 2 (Right-Bottom) -->
-              <a href="#" class="location-card card-small">
-                <img
-                  src="/find3.png"
-                  alt="Vaishali Nagar"
-                  class="location-card-img"
-                />
-
-                <div class="card-content-overlay">
-                  <h5>Vaishali Nagar</h5>
-                  <p>
-                    Well-planned colony, modern amenities, good schools,
-                    self-sufficient lifestyle.
-                  </p>
-                <button class="explore-link">
-                  <span>Explore Now</span>
-                  <span class="arrow-circle"
-                    ><i class="bi bi-arrow-up-right"></i
-                  ></span>
-                </button>
-                </div>
-              </a>
+                <a href="#" class="btn bg-teal text-white btn-circle">
+                  <i class="bi bi-arrow-up-right"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- Card 2 -->
+        <div class="col">
+          <div class="card h-100 rounded-4">
+            <img src="assets/images/india2.png" class="card-img-top p-3" alt="">
+            <div class="card-body p-4">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h5 class="fw-bold mb-1">Jio World Plaza</h5>
+                  <p class="text-muted small">Global shopping hub.</p>
+                </div>
+                <a href="#" class="btn bg-teal text-white btn-circle">
+                  <i class="bi bi-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col">
+          <div class="card h-100 rounded-4">
+            <img src="assets/images/india3.png" class="card-img-top p-3" alt="">
+            <div class="card-body p-4">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h5 class="fw-bold mb-1">City Palace Udaipur</h5>
+                  <p class="text-muted small">Cultural</p>
+                </div>
+                <a href="#" class="btn bg-teal text-white btn-circle">
+                  <i class="bi bi-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </section>
 
+      <!-- Mobile Slider (hidden on desktop) -->
+      <div class="swiper mySwiper d-md-none">
+        <div class="swiper-wrapper">
 
-    <div class="container container-lg py-5 my-md-4">
+          <!-- Slide 1 -->
+          <div class="swiper-slide">
+            <div class="card rounded-4">
+              <img src="assets/images/india1.png" class="card-img-top p-3" alt="">
+              <div class="card-body">
+                <h5 class="fw-bold">Taj Mahal</h5>
+                <p class="small text-muted">For breathtaking views.</p>
+              </div>
+            </div>
+          </div>
 
-       
-        <div class="text-center mb-5">
+          <!-- Slide 2 -->
+          <div class="swiper-slide">
+            <div class="card rounded-4">
+              <img src="assets/images/india2.png" class="card-img-top p-3" alt="">
+              <div class="card-body">
+                <h5 class="fw-bold">Jio World Plaza</h5>
+                <p class="small text-muted">Global shopping hub.</p>
+              </div>
+            </div>
+          </div>
 
-          <span class="tag-pill">
-                    <i class="bi bi-circle-fill"></i>
-                    Settle In Comfortably
-                </span>
-   
-            <h1 class=" fw-bold text-dark">
-                Short-Term Accommodation
-            </h1>
+          <!-- Slide 3 -->
+          <div class="swiper-slide">
+            <div class="card rounded-4">
+              <img src="assets/images/india3.png" class="card-img-top p-3" alt="">
+              <div class="card-body">
+                <h5 class="fw-bold">City Palace Udaipur</h5>
+                <p class="small text-muted">Cultural</p>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-
-       <div class="row g-2 g-sm-5 align-items-center mb-2 mb-sm-5">
-    
-            <div class="col-md-6 order-md-1 order-2 text-start">
-                <h2 class="display-6 fw-semibold">Hotel Apartments</h2>
-                <!-- Replaced 'text-lg' with 'fs-5' and 'text-gray-600' with 'text-muted' -->
-                <p class="fs-5 text-muted">
-                    Discuss the convenience of furnished hotel apartments for the first few weeks.
-                </p>
-            </div>
-            
-            <!-- Image Column (Right on desktop, Top on mobile) -->
-            <div class="col-md-6 order-md-2 order-1">
-                <!-- Replaced 'w-full', 'rounded-xl', 'shadow-lg' with Bootstrap 'img-fluid', 'rounded-4', 'shadow-lg' -->
-                <img src="/short1.png"
-                     alt="Spacious hotel lobby with large flower arrangements and marble floors"
-                     class="img-fluid rounded-4">
-            </div>
-        </div>
-
-        <!-- 3. Second Row: Furnished Rentals -->
-        <!-- This row doesn't need order classes as it follows the natural flow -->
-        <div class="row g-3 g-md-5 align-items-center">
-            
-            <!-- Image Column (Left on desktop, Top on mobile) -->
-            <div class="col-md-6">
-                 <img src="/short2.png"
-                     alt="A couple sitting on a couch in a modern furnished apartment, looking at a laptop"
-                     class="img-fluid rounded-4">
-            </div>
-
-            <!-- Text Column (Right on desktop, Bottom on mobile) -->
-            <div class="col-md-6 text-start">
-                <h2 class="display-6 fw-semibold">Furnished Rentals</h2>
-                <p class="fs-5 text-muted">
-                    Mention services that provide short-term leases on furnished homes.
-                </p>
-            </div>
-        </div>
+        <!-- Pagination Dots -->
+        <div class="swiper-pagination"></div>
+      </div>
 
     </div>
-
-
- <section style="background-color: #F5F5F5; padding: 20px 0px;">
-    <div class="container my-4">
-
-        <!-- Header -->
-        <div class="text-center mb-5">
-            <span class="tag-pill">
-                <i class="bi bi-circle-fill"></i> YOUR NEW CITY AWAITS
-            </span>
-            <h1 class="display-5 fw-bold text-dark">Experience India</h1>
-        </div>
-
-        <!-- Desktop Grid (hidden on mobile) -->
-        <div class="row row-cols-1 row-cols-md-3 g-4 d-none d-md-flex">
-
-            <!-- Card 1 -->
-            <div class="col">
-                <div class="card h-100 rounded-4">
-                    <img src="/india1.png" class="card-img-top p-3" alt="">
-                    <div class="card-body p-4">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <h5 class="fw-bold mb-1">Taj Mahal</h5>
-                                <p class="text-muted small">For breathtaking views.</p>
-                            </div>
-                            <a href="#" class="btn bg-teal text-white btn-circle">
-                                <i class="bi bi-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="col">
-                <div class="card h-100 rounded-4">
-                    <img src="/india2.png" class="card-img-top p-3" alt="">
-                    <div class="card-body p-4">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <h5 class="fw-bold mb-1">Jio World Plaza</h5>
-                                <p class="text-muted small">Global shopping hub.</p>
-                            </div>
-                            <a href="#" class="btn bg-teal text-white btn-circle">
-                                <i class="bi bi-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="col">
-                <div class="card h-100 rounded-4">
-                    <img src="/india3.png" class="card-img-top p-3" alt="">
-                    <div class="card-body p-4">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <h5 class="fw-bold mb-1">City Palace Udaipur</h5>
-                                <p class="text-muted small">Cultural</p>
-                            </div>
-                            <a href="#" class="btn bg-teal text-white btn-circle">
-                                <i class="bi bi-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Mobile Slider (hidden on desktop) -->
-        <div class="swiper mySwiper d-md-none">
-            <div class="swiper-wrapper">
-
-                <!-- Slide 1 -->
-                <div class="swiper-slide">
-                    <div class="card rounded-4">
-                        <img src="/india1.png" class="card-img-top p-3" alt="">
-                        <div class="card-body">
-                            <h5 class="fw-bold">Taj Mahal</h5>
-                            <p class="small text-muted">For breathtaking views.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 2 -->
-                <div class="swiper-slide">
-                    <div class="card rounded-4">
-                        <img src="/india2.png" class="card-img-top p-3" alt="">
-                        <div class="card-body">
-                            <h5 class="fw-bold">Jio World Plaza</h5>
-                            <p class="small text-muted">Global shopping hub.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 3 -->
-                <div class="swiper-slide">
-                    <div class="card rounded-4">
-                        <img src="/india3.png" class="card-img-top p-3" alt="">
-                        <div class="card-body">
-                            <h5 class="fw-bold">City Palace Udaipur</h5>
-                            <p class="small text-muted">Cultural</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Pagination Dots -->
-            <div class="swiper-pagination" ></div>
-        </div>
-
-    </div>
-</section>
+  </section>
 
 
 
- <div class="container my-5" style="padding: 30px 15px">
+  <div class="container my-5" style="padding: 30px 15px">
 
-  <!-- Header -->
-  <div class="text-center mb-5">
-    <span class="tag-pill">
-      <i class="bi bi-circle-fill"></i>
-      Latest Blog
-    </span>
-    <h1 class="display-5 fw-semibold text-dark">
-      Your Expert Guides to Moving to India
-    </h1>
-  </div>
-
-  <!-- Desktop Layout -->
-  <div class="row g-4 d-none d-md-flex">
-    <div class="col-md-6">
-      <a href="#" class="card-image-overlay d-block text-decoration-none">
-        <img src="/guide1.png" alt="" class="img-fluid" />
-        <div class="card-content">
-          <h6 class="card-title text-lg-medium">Indian Customs & Regulations Guide</h6>
-        </div>
-      </a>
+    <!-- Header -->
+    <div class="text-center mb-5">
+      <span class="tag-pill">
+        <i class="bi bi-circle-fill"></i>
+        Latest Blog
+      </span>
+      <h1 class="display-5 fw-semibold text-dark">
+        Your Expert Guides to Moving to India
+      </h1>
     </div>
 
-    <div class="col-md-3">
-      <a href="#" class="card-image-overlay d-block text-decoration-none">
-        <img src="/guide2.png" alt="" class="img-fluid" />
-        <div class="card-content">
-          <h5 class="card-title">Preparing Your Home for an International Move</h5>
-        </div>
-      </a>
-    </div>
-
-    <div class="col-md-3">
-      <a href="#" class="card-image-overlay d-block text-decoration-none">
-        <img src="/guide3.png" alt="" class="img-fluid" />
-        <div class="card-content">
-          <h5 class="card-title">India Visa & Residency Process Explained</h5>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <!-- Mobile Slider -->
-  <div class="swiper blogSwiper d-md-none mt-4">
-    <div class="swiper-wrapper">
-
-      <div class="swiper-slide">
+    <!-- Desktop Layout -->
+    <div class="row g-4 d-none d-md-flex">
+      <div class="col-md-6">
         <a href="#" class="card-image-overlay d-block text-decoration-none">
-          <img src="/guide1.png" class="img-fluid" />
+          <img src="assets/images/guide1.png" alt="" class="img-fluid" />
           <div class="card-content">
-            <h6 class="card-title">Indian Customs & Regulations Guide</h6>
+            <h6 class="card-title text-lg-medium">Indian Customs & Regulations Guide</h6>
           </div>
         </a>
       </div>
 
-      <div class="swiper-slide">
+      <div class="col-md-3">
         <a href="#" class="card-image-overlay d-block text-decoration-none">
-          <img src="/guide2.png" class="img-fluid" />
+          <img src="assets/images/guide2.png" alt="" class="img-fluid" />
           <div class="card-content">
             <h5 class="card-title">Preparing Your Home for an International Move</h5>
           </div>
         </a>
       </div>
 
-      <div class="swiper-slide">
+      <div class="col-md-3">
         <a href="#" class="card-image-overlay d-block text-decoration-none">
-          <img src="/guide3.png" class="img-fluid" />
+          <img src="assets/images/guide3.png" alt="" class="img-fluid" />
           <div class="card-content">
             <h5 class="card-title">India Visa & Residency Process Explained</h5>
           </div>
         </a>
       </div>
-
     </div>
 
-    <!-- <div class="swiper-pagination"></div> -->
+    <!-- Mobile Slider -->
+    <div class="swiper blogSwiper d-md-none mt-4">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <a href="#" class="card-image-overlay d-block text-decoration-none">
+            <img src="assets/images/guide1.png" class="img-fluid" />
+            <div class="card-content">
+              <h6 class="card-title">Indian Customs & Regulations Guide</h6>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide">
+          <a href="#" class="card-image-overlay d-block text-decoration-none">
+            <img src="assets/images/guide2.png" class="img-fluid" />
+            <div class="card-content">
+              <h5 class="card-title">Preparing Your Home for an International Move</h5>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide">
+          <a href="#" class="card-image-overlay d-block text-decoration-none">
+            <img src="assets/images/guide3.png" class="img-fluid" />
+            <div class="card-content">
+              <h5 class="card-title">India Visa & Residency Process Explained</h5>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- <div class="swiper-pagination"></div> -->
+    </div>
+
   </div>
 
-</div>
+
+  <div class="container my-5">
+
+    <!-- 1. Header Section -->
+    <div class="text-center mb-5">
+      <!-- Small teal text with dot -->
+      <span class="tag-pill">
+        <i class="bi bi-circle-fill"></i>
+        Testimonials
+      </span>
+      <!-- Main Heading -->
+      <h1 class="display-5 fw-bold text-dark mb-3">
+        Success Stories
+      </h1>
+      <!-- Star Rating -->
+      <div class="star-rating text-green-stars mb-2">
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-half"></i> <!-- Changed to 4.5 to match 4.6 -->
+      </div>
+      <p class="text-muted">Average Goggle Rating is 4.6</p>
+    </div>
+
+    <!-- 2. Testimonial Content -->
+    <!-- Using row-cols-1 for mobile (stacking) -->
+    <!-- Using md columns for desktop (side-by-side) -->
+    <div class="row row-cols-1 row-cols-md-2 g-3 g-md-5 align-items-center">
+
+      <!-- Left Column: Image with Frame -->
+      <div class="col-md-5">
+        <div class="image-frame-wrapper">
+          <!-- Decorative Blocks -->
+          <div class="frame-block frame-block-top"></div>
+          <div class="frame-block frame-block-bottom"></div>
+
+          <!-- User Image -->
+          <img src="assets/images/client.png" alt="Portrait of Subhash Patil" class="shadow-lg img-fluid">
+        </div>
+      </div>
+
+      <!-- Right Column: Testimonial Text -->
+      <div class="col-md-7">
+        <div class="testimonial-content text-center">
+
+          <!-- Quote Icon -->
+          <span class="quote-icon text-quote-blue d-block mb-3">
+            <i class="bi bi-quote"></i>
+          </span>
+
+          <!-- Heading -->
+          <h2 class="h1 fw-bold text-dark mb-4">Our Client Say</h2>
+
+          <!-- Text -->
+          <p class="fs-5 text-muted lh-lg mb-4">
+            Moved from Singapore to India smoothly in 4 weeks! The team handled everything professionally and our
+            belongings arrived in perfect condition.
+          </p>
+
+          <!-- Author -->
+          <h5 class="fw-bold text-dark mb-1">Subhash Patil</h5>
+          <p class="text-muted mb-4">Singapore to Mumbai (India)</p>
+
+          <!-- Navigation -->
+          <div>
+            <a href="#" class="btn btn-nav me-2" aria-label="Previous Testimonial">
+              <i class="bi bi-arrow-left"></i>
+            </a>
+            <a href="#" class="btn btn-nav" aria-label="Next Testimonial">
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- /End Row -->
+
+  </div>
 
 
-    <div class="container my-5">
+  <section class="bg-journey-grid">
+    <div class="container">
+      <!-- Use align-items-center to vertically center content */ -->
+      <div class="row align-items-center">
 
-        <!-- 1. Header Section -->
-        <div class="text-center mb-5">
-            <!-- Small teal text with dot -->
-             <span class="tag-pill">
-                    <i class="bi bi-circle-fill"></i>
-                    Testimonials
-                </span>
-            <!-- Main Heading -->
-            <h1 class="display-5 fw-bold text-dark mb-3">
-                Success Stories
-            </h1>
-            <!-- Star Rating -->
-            <div class="star-rating text-green-stars mb-2">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-half"></i> <!-- Changed to 4.5 to match 4.6 -->
-            </div>
-            <p class="text-muted">Average Goggle Rating is 4.6</p>
+        <!-- Left Column: Text Content -->
+        <!-- On mobile, text is centered. On desktop (lg) it's left-aligned */ -->
+        <div class="col-lg-6 col-md-12 py-5 text-center text-lg-start">
+
+          <h1 class="display- fw-bold text-white mb-3">
+            Ready to Begin Your Journey?
+          </h1>
+
+          <p class="fs-5 text-white-50 mb-4 pb-2">
+            Let our expert team guide you through a seamless relocation to India. Get your personalized quote today.
+          </p>
+
+          <!-- Button Wrapper -->
+          <!-- On mobile, buttons stack. On desktop (sm) they are side-by-side */ -->
+          <div class="d-grid d-sm-flex justify-content-center justify-content-lg-start gap-3">
+
+            <!-- Button 1 -->
+            <a href="#" class="btn btn-white-cta d-inline-flex align-items-center justify-content-between">
+              <span>Get Your Free Quote</span>
+              <span class="btn-arrow-circle">
+                <i class="bi bi-arrow-up-right"></i>
+              </span>
+            </a>
+
+            <!-- Button 2 -->
+            <a href="#" class="btn btn-white-cta d-inline-flex align-items-center justify-content-between">
+              <span>Talk to an Indian Specialist</span>
+              <span class="btn-arrow-circle">
+                <i class="bi bi-arrow-up-right"></i>
+              </span>
+            </a>
+
+          </div>
         </div>
 
-        <!-- 2. Testimonial Content -->
-        <!-- Using row-cols-1 for mobile (stacking) -->
-        <!-- Using md columns for desktop (side-by-side) -->
-        <div class="row row-cols-1 row-cols-md-2 g-3 g-md-5 align-items-center">
-
-            <!-- Left Column: Image with Frame -->
-            <div class="col-md-5">
-                <div class="image-frame-wrapper">
-                    <!-- Decorative Blocks -->
-                    <div class="frame-block frame-block-top"></div>
-                    <div class="frame-block frame-block-bottom"></div>
-                    
-                    <!-- User Image -->
-                    <img src="/client.png"
-                         alt="Portrait of Subhash Patil"
-                         class="shadow-lg img-fluid">
-                </div>
-            </div>
-
-            <!-- Right Column: Testimonial Text -->
-            <div class="col-md-7">
-                <div class="testimonial-content text-center">
-                    
-                    <!-- Quote Icon -->
-                    <span class="quote-icon text-quote-blue d-block mb-3">
-                        <i class="bi bi-quote"></i>
-                    </span>
-                    
-                    <!-- Heading -->
-                    <h2 class="h1 fw-bold text-dark mb-4">Our Client Say</h2>
-                    
-                    <!-- Text -->
-                    <p class="fs-5 text-muted lh-lg mb-4">
-                        Moved from Singapore to India smoothly in 4 weeks! The team handled everything professionally and our belongings arrived in perfect condition.
-                    </p>
-                    
-                    <!-- Author -->
-                    <h5 class="fw-bold text-dark mb-1">Subhash Patil</h5>
-                    <p class="text-muted mb-4">Singapore to Mumbai (India)</p>
-
-                    <!-- Navigation -->
-                    <div>
-                        <a href="#" class="btn btn-nav me-2" aria-label="Previous Testimonial">
-                            <i class="bi bi-arrow-left"></i>
-                        </a>
-                        <a href="#" class="btn btn-nav" aria-label="Next Testimonial">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div> <!-- /End Row -->
-
-    </div>  
-
-
-    <section class="bg-journey-grid">
-        <div class="container">
-            <!-- Use align-items-center to vertically center content */ -->
-            <div class="row align-items-center">
-                
-                <!-- Left Column: Text Content -->
-                <!-- On mobile, text is centered. On desktop (lg) it's left-aligned */ -->
-                <div class="col-lg-6 col-md-12 py-5 text-center text-lg-start">
-                    
-                    <h1 class="display- fw-bold text-white mb-3">
-                        Ready to Begin Your Journey?
-                    </h1>
-                    
-                    <p class="fs-5 text-white-50 mb-4 pb-2">
-                        Let our expert team guide you through a seamless relocation to India. Get your personalized quote today.
-                    </p>
-                    
-                    <!-- Button Wrapper -->
-                    <!-- On mobile, buttons stack. On desktop (sm) they are side-by-side */ -->
-                    <div class="d-grid d-sm-flex justify-content-center justify-content-lg-start gap-3">
-                        
-                        <!-- Button 1 -->
-                        <a href="#" class="btn btn-white-cta d-inline-flex align-items-center justify-content-between">
-                            <span>Get Your Free Quote</span>
-                            <span class="btn-arrow-circle">
-                                <i class="bi bi-arrow-up-right"></i>
-                            </span>
-                        </a>
-                        
-                        <!-- Button 2 -->
-                        <a href="#" class="btn btn-white-cta d-inline-flex align-items-center justify-content-between">
-                            <span>Talk to an Indian Specialist</span>
-                            <span class="btn-arrow-circle">
-                                <i class="bi bi-arrow-up-right"></i>
-                            </span>
-                        </a>
-                        
-                    </div>
-                </div>
-
-                <!-- Right Column: Image -->
-                <!-- Hide on small screens (md) and down for a cleaner look */ -->
-                <div class="col-lg-6 d-none d-lg-block align-self-end col-img-no-padding">
-                    <img src="/begin.png" 
-                         alt="Modern house exterior"
-                         class="img-fluid journey-img">
-                </div>
-                
-            </div> <!-- /End Row -->
-        </div> <!-- /End Container -->
-    </section>
-
-
-     <footer class="footer-main " style="margin-top: 70px;">
-        <div class="container-fluid p-0">
-           <div class="footer-wrapper">
-
-    <!-- Logo Overlay -->
-    <img src="/logo.png" alt="APAC Relocations Logo" class="footer-logo">
-
-    <div class="row g-0">
-
-        <!-- Left Column: Footer Image -->
-        <div class="col-lg-5 p-0">
-            <img src="/foot1.png" class="img-fluid w-100" alt="">
+        <!-- Right Column: Image -->
+        <!-- Hide on small screens (md) and down for a cleaner look */ -->
+        <div class="col-lg-6 d-none d-lg-block align-self-end col-img-no-padding">
+          <img src="assets/images/begin.png" alt="Modern house exterior" class="img-fluid journey-img">
         </div>
-        <img src="/logo.png" 
-     alt="APAC Relocations Logo" 
-     class="d-block d-sm-none mx-auto" 
-     style="width: 45%; padding-top: 30px;">
 
-        <!-- Right Column: Content -->
-        <div class="col-lg-7 col-md-12">
+      </div> <!-- /End Row -->
+    </div> <!-- /End Container -->
+  </section>
+
+
+  <footer class="footer-main " style="margin-top: 70px;">
+    <div class="container-fluid p-0">
+      <div class="footer-wrapper">
+
+        <!-- Logo Overlay -->
+        <img src="assets/images/logo.png" alt="APAC Relocations Logo" class="footer-logo">
+
+        <div class="row g-0">
+
+          <!-- Left Column: Footer Image -->
+          <div class="col-lg-5 p-0">
+            <img src="assets/images/foot1.png" class="img-fluid w-100" alt="">
+          </div>
+          <img src="assets/images/logo.png" alt="APAC Relocations Logo" class="d-block d-sm-none mx-auto"
+            style="width: 45%; padding-top: 30px;">
+
+          <!-- Right Column: Content -->
+          <div class="col-lg-7 col-md-12">
             <div class="footer-content">
 
-                <!-- Content Grid -->
-                <div class="row">
-                    <!-- Global Offices & Quick Links -->
-                    <div class="col-md-6 footer-links">
-                        <h6 class="footer-heading">Global Offices</h6>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Ridley, MY</a></li>
-                            <li><a href="#">Selatong, MY</a></li>
-                            <li><a href="#">Defena, Australia</a></li>
-                        </ul>
+              <!-- Content Grid -->
+              <div class="row">
+                <!-- Global Offices & Quick Links -->
+                <div class="col-md-6 footer-links">
+                  <h6 class="footer-heading">Global Offices</h6>
+                  <ul class="list-unstyled">
+                    <li><a href="#">Ridley, MY</a></li>
+                    <li><a href="#">Selatong, MY</a></li>
+                    <li><a href="#">Defena, Australia</a></li>
+                  </ul>
 
-                        <h6 class="footer-heading mt-4">Quick Links</h6>
-                        <div class="row">
-                            <div class="col-6">
-                                <ul class="list-unstyled">
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Career</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-6">
-                                <ul class="list-unstyled">
-                                    <li><a href="#">Moving</a></li>
-                                    <li><a href="#">Services</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                  <h6 class="footer-heading mt-4">Quick Links</h6>
+                  <div class="row">
+                    <div class="col-6">
+                      <ul class="list-unstyled">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Career</a></li>
+                      </ul>
                     </div>
-
-                    <!-- Contact Info -->
-                    <div class="col-md-5 mt-4 mt-md-0 p-4 border">
-                        <h6 class="fw-semibold text-black">Contact Info</h6>
-
-                        <div class="d-flex align-items-center gap-2">
-                            <i class="bi bi-telephone-fill"></i>
-                            <span class="fw-semibold text-black">+91 999 999 999</span>
-                        </div>
-
-                        <div class="mt-3">
-                            <div class="d-flex align-items-center gap-2">
-                                <i class="bi bi-geo-alt-fill"></i>
-                                <p class="mb-0 fw-semibold text-black">Address</p>
-                            </div>
-                            <span class="d-block mt-1">Ridley, MY, Selatong, MY, Defena, Australia</span>
-                        </div>
-
-                        <div class="mt-3">
-                            <div class="d-flex align-items-center gap-2">
-                                <i class="bi bi-envelope-fill"></i>
-                                <p class="mb-0 fw-semibold text-black">Contact</p>
-                            </div>
-                            <span class="d-block mt-1">contact@apac.com</span>
-                        </div>
-
-                        <div class="d-flex gap-2 mt-3">
-                            <a href="#" class="btn btn-social"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="btn btn-social"><i class="bi bi-linkedin"></i></a>
-                            <a href="#" class="btn btn-social"><i class="bi bi-twitter-x"></i></a>
-                            <a href="#" class="btn btn-social"><i class="bi bi-instagram"></i></a>
-                        </div>
+                    <div class="col-6">
+                      <ul class="list-unstyled">
+                        <li><a href="#">Moving</a></li>
+                        <li><a href="#">Services</a></li>
+                      </ul>
                     </div>
-
+                  </div>
                 </div>
 
-                <!-- WhatsApp Button -->
-                <div class="row mt-5">
-                    <div class="col-12">
-                        <a href="#" class="btn btn-teal-cta d-flex align-items-center justify-content-between">
-                            <span>WhatsApp Chat</span>
-                            <span style="background-color: white; color: black; padding: 6px 10px; border-radius: 80%; margin-right: 6px;"><i class="bi bi-arrow-up-right"></i></span>
-                        </a>
+                <!-- Contact Info -->
+                <div class="col-md-5 mt-4 mt-md-0 p-4 border">
+                  <h6 class="fw-semibold text-black">Contact Info</h6>
+
+                  <div class="d-flex align-items-center gap-2">
+                    <i class="bi bi-telephone-fill"></i>
+                    <span class="fw-semibold text-black">+91 999 999 999</span>
+                  </div>
+
+                  <div class="mt-3">
+                    <div class="d-flex align-items-center gap-2">
+                      <i class="bi bi-geo-alt-fill"></i>
+                      <p class="mb-0 fw-semibold text-black">Address</p>
                     </div>
+                    <span class="d-block mt-1">Ridley, MY, Selatong, MY, Defena, Australia</span>
+                  </div>
+
+                  <div class="mt-3">
+                    <div class="d-flex align-items-center gap-2">
+                      <i class="bi bi-envelope-fill"></i>
+                      <p class="mb-0 fw-semibold text-black">Contact</p>
+                    </div>
+                    <span class="d-block mt-1">contact@apac.com</span>
+                  </div>
+
+                  <div class="d-flex gap-2 mt-3">
+                    <a href="#" class="btn btn-social"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="btn btn-social"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="btn btn-social"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="btn btn-social"><i class="bi bi-instagram"></i></a>
+                  </div>
                 </div>
+
+              </div>
+
+              <!-- WhatsApp Button -->
+              <div class="row mt-5">
+                <div class="col-12">
+                  <a href="#" class="btn btn-teal-cta d-flex align-items-center justify-content-between">
+                    <span>WhatsApp Chat</span>
+                    <span
+                      style="background-color: white; color: black; padding: 6px 10px; border-radius: 80%; margin-right: 6px;"><i
+                        class="bi bi-arrow-up-right"></i></span>
+                  </a>
+                </div>
+              </div>
 
             </div>
+          </div>
         </div>
-    </div>
-</div>
- <!-- /end .row -->
-        </div> <!-- /end .container-fluid -->
-    </footer>
+      </div>
+      <!-- /end .row -->
+    </div> <!-- /end .container-fluid -->
+  </footer>
 
-    <!-- Copyright Bar -->
-    <div class="footer-copyright text-center p-3 small">
-        2025 Moving to India. All rights reserved.
-    </div>
-    <!-- <div style="height: 100px"></div> -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
+  <!-- Copyright Bar -->
+  <div class="footer-copyright text-center p-3 small">
+    2025 Moving to India. All rights reserved.
+  </div>
+  <!-- <div style="height: 100px"></div> -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
     const dropdowns = document.getElementById('fullHousehold');
-    
+
     // Dono containers ko select karein
     const fullSection = document.getElementById('designContainer');
     const partialSection = document.getElementById('partialContainer');
 
-    dropdowns.addEventListener('change', function() {
-        // Step 1: Pehle sab kuch chhupa dein (Hide All)
-        fullSection.style.display = 'none';
-        partialSection.style.display = 'none';
+    dropdowns.addEventListener('change', function () {
+      // Step 1: Pehle sab kuch chhupa dein (Hide All)
+      fullSection.style.display = 'none';
+      partialSection.style.display = 'none';
 
-        // Step 2: Check karein konsa option select hua hai
-        if (this.value === 'full_household') {
-            // Show Full Household Section
-            fullSection.style.display = 'block';
-            
-        } else if (this.value === 'partial_household') {
-            // Show Partial Household Section
-            partialSection.style.display = 'block';
-        }
+      // Step 2: Check karein konsa option select hua hai
+      if (this.value === 'full_household') {
+        // Show Full Household Section
+        fullSection.style.display = 'block';
+
+      } else if (this.value === 'partial_household') {
+        // Show Partial Household Section
+        partialSection.style.display = 'block';
+      }
     });
-</script>
-<script>
-  var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
-</script>
-<script>
-  var swiper = new Swiper(".blogSwiper", {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
-</script>
-<script>
+  </script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
+  <script>
+    var swiper = new Swiper(".blogSwiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
+  <script>
     // 1. Select the elements
     const dropdown = document.getElementById('fullHousehold');
     const designContainer = document.getElementById('designContainer');
 
     // 2. Add an event listener for when the change happens
-    dropdown.addEventListener('change', function() {
-        
-        // 3. Check if the selected value is "full_household"
-        if (this.value === 'full_household') {
-            // Show the design
-            designContainer.style.display = 'block'; 
-        } else {
-            // Hide the design for any other selection
-            designContainer.style.display = 'none'; 
-        }
+    dropdown.addEventListener('change', function () {
+
+      // 3. Check if the selected value is "full_household"
+      if (this.value === 'full_household') {
+        // Show the design
+        designContainer.style.display = 'block';
+      } else {
+        // Hide the design for any other selection
+        designContainer.style.display = 'none';
+      }
     });
-</script>
-<script>
+  </script>
+  <script>
     // Select the elements
     const preMoveCheckbox = document.getElementById('preMove');
     const surveyDetails = document.getElementById('surveyDetails');
 
     // Listen for changes on the checkbox
-    preMoveCheckbox.addEventListener('change', function() {
-        if (this.checked) {
-            // If checked, show the inputs
-            surveyDetails.style.display = 'block';
-        } else {
-            // If unchecked, hide them
-            surveyDetails.style.display = 'none';
-        }
+    preMoveCheckbox.addEventListener('change', function () {
+      if (this.checked) {
+        // If checked, show the inputs
+        surveyDetails.style.display = 'block';
+      } else {
+        // If unchecked, hide them
+        surveyDetails.style.display = 'none';
+      }
     });
-</script>
-<script>
+  </script>
+  <script>
     // 1. Select Dropdown
-    var dropdownss = document.getElementById('fullHousehold'); 
-    
+    var dropdownss = document.getElementById('fullHousehold');
+
     // 2. Select All Containers
     var fullSections = document.getElementById('designContainer');
     var partialSections = document.getElementById('partialContainer');
@@ -3536,27 +1728,28 @@
 
     // 3. Function to Hide All Sections
     function hideAll() {
-        if(fullSections) fullSections.style.display = 'none';
-        if(partialSections) partialSections.style.display = 'none';
-        if(boxesSection) boxesSection.style.display = 'none';
+      if (fullSections) fullSections.style.display = 'none';
+      if (partialSections) partialSections.style.display = 'none';
+      if (boxesSection) boxesSection.style.display = 'none';
     }
 
     // 4. Event Listener
-    dropdownss.addEventListener('change', function() {
-        
-        hideAll(); // Pehle sab chhupa do
+    dropdownss.addEventListener('change', function () {
 
-        if (this.value === 'full_household') {
-            if(fullSections) fullSections.style.display = 'block';
+      hideAll(); // Pehle sab chhupa do
 
-        } else if (this.value === 'partial_household') {
-            if(partialSections) partialSections.style.display = 'block';
+      if (this.value === 'full_household') {
+        if (fullSections) fullSections.style.display = 'block';
 
-        } else if (this.value === 'few_boxes') {
-            // Show Boxes Section
-            if(boxesSection) boxesSection.style.display = 'block';
-        }
+      } else if (this.value === 'partial_household') {
+        if (partialSections) partialSections.style.display = 'block';
+
+      } else if (this.value === 'few_boxes') {
+        // Show Boxes Section
+        if (boxesSection) boxesSection.style.display = 'block';
+      }
     });
-</script>
-  </body>
+  </script>
+</body>
+
 </html>
